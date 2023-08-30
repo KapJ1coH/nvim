@@ -20,24 +20,28 @@ return require('packer').startup(function(use)
 	})
 
 
+    use('mhinz/vim-startify')
+    use('wakatime/vim-wakatime')
+    use('jiangmiao/auto-pairs')
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use 'ThePrimeagen/harpoon' 
 	use 'mbbill/undotree'
 	use 'tpope/vim-fugitive'
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v2.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{'williamboman/mason.nvim'},           -- Optional
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'better-defaults',
+        requires = {
+            --- Uncomment these if you want to manage LSP servers from neovim
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
 
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},     -- Required
-			{'hrsh7th/cmp-nvim-lsp'}, -- Required
-			{'L3MON4D3/LuaSnip'},     -- Required
-		}
-	}
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'L3MON4D3/LuaSnip'},
+        }
+    }   
 end)
 

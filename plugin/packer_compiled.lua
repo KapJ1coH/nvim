@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/kapj1coh/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/kapj1coh/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/kapj1coh/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -149,6 +154,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kapj1coh/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-startify"] = {
+    loaded = true,
+    path = "/home/kapj1coh/.local/share/nvim/site/pack/packer/start/vim-startify",
+    url = "https://github.com/mhinz/vim-startify"
+  },
+  ["vim-wakatime"] = {
+    loaded = true,
+    path = "/home/kapj1coh/.local/share/nvim/site/pack/packer/start/vim-wakatime",
+    url = "https://github.com/wakatime/vim-wakatime"
   }
 }
 

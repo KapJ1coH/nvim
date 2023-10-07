@@ -21,7 +21,9 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/kap/packer.lua<CR>")
+vim.keymap.set("n", "<leader>vpp", "<cmd>e C:/Users/ty096829/AppData/local/nvim/lua/kap/packer.lua<CR>")
+vim.keymap.set("n", "<leader>vr", "<cmd>e C:/Users/ty096829/AppData/local/nvim/lua/kap/remap.lua<CR>")
+vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")

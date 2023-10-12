@@ -7,6 +7,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use { 'mhartington/formatter.nvim' }
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
         requires = { {'nvim-lua/plenary.nvim'} }
@@ -20,17 +22,28 @@ return require('packer').startup(function(use)
     })
 
     use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            {"nvim-lua/plenary.nvim"},
+            {"nvim-treesitter/nvim-treesitter"}
+        }
+    }
+
+    use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
     use('mhinz/vim-startify')
     -- use('wakatime/vim-wakatime')
-    use('jiangmiao/auto-pairs')
+    -- use('jiangmiao/auto-pairs')
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use 'ThePrimeagen/harpoon'
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
+    -- use 'airblade/vim-gitgutter'
+    use 'lewis6991/gitsigns.nvim'
+
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'better-defaults',

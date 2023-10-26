@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
@@ -84,20 +89,31 @@ _G.packer_plugins = {
     path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-rg"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-rg",
+    url = "https://github.com/lukas-reineke/cmp-rg"
+  },
   ["formatter.nvim"] = {
     loaded = true,
     path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\formatter.nvim",
     url = "https://github.com/mhartington/formatter.nvim"
   },
-  ["gitsigns.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
-    url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
   harpoon = {
     loaded = true,
     path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
+  },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
+  ["log-highlight.nvim"] = {
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18log-highlight\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\log-highlight.nvim",
+    url = "https://github.com/fei6409/log-highlight.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -119,15 +135,56 @@ _G.packer_plugins = {
     path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
+  },
+  neotest = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neotest",
+    url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-plenary"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neotest-plenary",
+    url = "https://github.com/nvim-neotest/neotest-plenary"
+  },
+  ["neotest-python"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neotest-python",
+    url = "https://github.com/nvim-neotest/neotest-python"
+  },
+  ["neotest-vim-test"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neotest-vim-test",
+    url = "https://github.com/nvim-neotest/neotest-vim-test"
+  },
+  ["nvim-autopairs"] = {
+    config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-lsp-basics"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lsp-basics",
+    url = "https://github.com/nanotee/nvim-lsp-basics"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-scrollbar"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-scrollbar",
+    url = "https://github.com/petertriho/nvim-scrollbar"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -176,18 +233,36 @@ _G.packer_plugins = {
     path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
+  },
   ["vim-startify"] = {
     loaded = true,
     path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-startify",
     url = "https://github.com/mhinz/vim-startify"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "C:\\Users\\ty096829\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: log-highlight.nvim
+time([[Config for log-highlight.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18log-highlight\frequire\0", "config", "log-highlight.nvim")
+time([[Config for log-highlight.nvim]], false)
 -- Config for: rose-pine
 time([[Config for rose-pine]], true)
 try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\31colorscheme rose-pine-moon\bcmd\bvim\0", "config", "rose-pine")
 time([[Config for rose-pine]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

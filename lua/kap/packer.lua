@@ -1,4 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -41,9 +40,7 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
-    -- use 'airblade/vim-gitgutter'
-    use 'lewis6991/gitsigns.nvim'
-
+    use 'airblade/vim-gitgutter'
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'better-defaults',
@@ -58,7 +55,46 @@ return require('packer').startup(function(use)
             {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-nvim-lsp'},
             {'L3MON4D3/LuaSnip'},
+
+            {'nanotee/nvim-lsp-basics'},
+            {'lukas-reineke/cmp-rg'},
+
         }
     }
+    use 'tpope/vim-surround'
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
+    use {
+        'fei6409/log-highlight.nvim',
+    }
+
+    use "folke/neodev.nvim"
+
+    -- testing stuff
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-neotest/neotest-python",
+            "nvim-neotest/neotest-vim-test",
+            "nvim-neotest/neotest-plenary"
+        }
+    }
+
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
+
+    use("petertriho/nvim-scrollbar")
+ 
 end)
 

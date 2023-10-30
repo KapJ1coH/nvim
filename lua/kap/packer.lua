@@ -95,6 +95,15 @@ return require('packer').startup(function(use)
     })
 
     use("petertriho/nvim-scrollbar")
- 
+
+    use {
+        "nvim-neorg/neorg",
+        run = ":Neorg sync-parsers",
+    }
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        ft = { "markdown" },
+    })
 end)
 

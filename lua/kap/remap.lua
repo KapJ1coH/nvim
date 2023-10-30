@@ -1,3 +1,7 @@
+local username = vim.fn.expand('$USER')
+if username == '$USER' then
+    username = vim.fn.expand('$USERNAME')
+end
 
 vim.g.mapleader = " "
 
@@ -22,11 +26,17 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 
 -- useful file jumps
-vim.keymap.set("n", "<leader>vpp", "<cmd>e C:/Users/ty096829/AppData/local/nvim/lua/kap/packer.lua<CR>")
-vim.keymap.set("n", "<leader>vpl", "<cmd>e C:/Users/ty096829/AppData/local/nvim/after/plugin<CR>")
-vim.keymap.set("n", "<leader>vph", "<cmd>e C:/sarnext/mmu/project_help.py<CR>")
-vim.keymap.set("n", "<leader>vr", "<cmd>e C:/Users/ty096829/AppData/local/nvim/lua/kap/remap.lua<CR>")
-vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
+vim.keymap.set("n", "<leader>vpp", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/packer.lua<CR>")
+vim.keymap.set("n", "<leader>vpl", "<cmd>e $LOCALAPPDATA/nvim/after/plugin<CR>")
+vim.keymap.set("n", "<leader>vr", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/remap.lua<CR>")
+
+if username == 'timam' then
+    vim.keymap.set("n", "<leader>vph", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/remap.lua<CR>")
+    -- vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
+elseif username == 'ty096829' then
+    vim.keymap.set("n", "<leader>vph", "<cmd>e C:/sarnext/mmu/project_help.py<CR>")
+    vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
+end
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")

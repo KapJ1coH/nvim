@@ -42,15 +42,20 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- replacing stuff
+vim.fn.setreg('t', "/send_tele^MV€kd€kd€kdd€ku pl")
+vim.fn.setreg('l', "/send_long_tele^MV€kd€kd€kdd€ku pl")
+
+
+-- paste useful stuff
+vim.keymap.set({"n", "v"}, "<leader>pl", [[oparam_dict, _ = cf.get_long_telemetry()<ESC>]])
+vim.keymap.set({"n", "v"}, "<leader>pt", [[oparam_dict, _ = cf.get_telemetry()<ESC>]])
 
 -- deleting stuff
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set({"n", "v"}, "<leader>dd", [["_dd]])
 vim.keymap.set({"n", "v"}, "<leader>D", [["_D]])
 
--- paste useful stuff
-vim.keymap.set({"n", "v"}, "<leader>pl", [[oparam_dict, _ = cf.get_long_telemetry()<ESC>]])
-vim.keymap.set({"n", "v"}, "<leader>pt", [[oparam_dict, _ = cf.get_telemetry()<ESC>]])
 
 -- debug git push for the lab pc
 vim.keymap.set("n", "gc", ":Git commit -a -m \"\"<Left>")

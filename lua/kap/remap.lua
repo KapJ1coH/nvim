@@ -43,8 +43,8 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 -- replacing stuff
-vim.fn.setreg('t', "/send_tele^MV€kd€kd€kdd€ku pl")
-vim.fn.setreg('l', "/send_long_tele^MV€kd€kd€kdd€ku pl")
+vim.fn.setreg('t', "/send_tele\rV/param_dict\rdk pt")
+vim.fn.setreg('l', "/send_long_tele\rV/param_dict\rdk pl")
 
 
 -- paste useful stuff

@@ -60,3 +60,6 @@ vim.keymap.set({"n", "v"}, "<leader>D", [["_D]])
 -- debug git push for the lab pc
 vim.keymap.set("n", "gc", ":Git commit -a -m \"\"<Left>")
 vim.keymap.set("n", "gp", ":Git push<CR>")
+
+-- show the doc
+vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>")

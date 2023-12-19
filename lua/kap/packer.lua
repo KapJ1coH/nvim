@@ -105,5 +105,15 @@ return require('packer').startup(function(use)
         run = "cd app && npm install",
         ft = { "markdown" },
     })
+    use({
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        as = 'lsp_lines.nvim',
+        config = function()
+            require("lsp_lines").setup()
+            vim.diagnostic.config({
+                virtual_text = false,
+            })
+        end,
+    })
 end)
 

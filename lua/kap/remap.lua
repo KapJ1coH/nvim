@@ -75,3 +75,6 @@ vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
 -- vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 vim.keymap.set('n', '<leader>u', ":UndotreeToggle<CR> <BAR> :UndotreeFocus<CR>")
 
+-- buffer jumping
+vim.keymap.set('n', '<C-S-Left>', ':bprev<CR>')
+vim.keymap.set('n', '<C-S-Right>', ':bnext<CR>')

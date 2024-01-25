@@ -28,10 +28,13 @@ return require('packer').startup(function(use)
         }
     }
 
+    use "stevearc/aerial.nvim"
+
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+    use "lukas-reineke/indent-blankline.nvim"
 
     use('mhinz/vim-startify')
     -- use('wakatime/vim-wakatime')
@@ -61,11 +64,11 @@ return require('packer').startup(function(use)
 
         }
     }
-    use 'tpope/vim-surround'
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
+    -- use 'tpope/vim-surround'
+    -- use {
+    --     "windwp/nvim-autopairs",
+    --     config = function() require("nvim-autopairs").setup {} end
+    -- }
 
     use {
         'fei6409/log-highlight.nvim',
@@ -96,14 +99,12 @@ return require('packer').startup(function(use)
 
     use("petertriho/nvim-scrollbar")
 
-    use {
-        "nvim-neorg/neorg",
-        run = ":Neorg sync-parsers",
-    }
     use({
         "iamcco/markdown-preview.nvim",
         run = "cd app && npm install",
         ft = { "markdown" },
     })
+
+    use ("folke/todo-comments.nvim")
 end)
 

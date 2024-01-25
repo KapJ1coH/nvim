@@ -12,4 +12,8 @@ vim.keymap.set('n', '<C-n>', function() ui.nav_file(4) end)
 
 
 
-
+require("harpoon").setup({
+    menu = {
+        width = vim.api.nvim_win_get_width(0) - 40,
+    }
+})

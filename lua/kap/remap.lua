@@ -24,6 +24,9 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Search case unsensetive
+vim.keymap.set("n", "/", "/\\c")
+
 
 -- useful file jumps
 vim.keymap.set("n", "<leader>vpp", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/packer.lua<CR>")
@@ -43,9 +46,13 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 -- replacing stuff
-vim.fn.setreg('t', "/send_tele\rV/param_dict\rdk pt")
-vim.fn.setreg('l', "/send_long_tele\rV/param_dict\rdk pl")
+vim.fn.setreg('t', "/send_tele\rV/decode_can_message\r/)\rdk pt")
+vim.fn.setreg('l', "/send_long_tele\rV/decode_long_telemetry_response\r/)\rdk pl")
 
+-- potential map for replacing stuff
+-- 
+-- replaces .55 into .{step_minor}
+-- "/step =\r/\.\d\+\rwcw[€kb{step_minor}Ostep_minor += 1/step =\r"
 
 -- paste useful stuff
 vim.keymap.set({"n", "v"}, "<leader>pl", [[oparam_dict, _ = cf.get_long_telemetry()<ESC>]])
@@ -60,3 +67,11 @@ vim.keymap.set({"n", "v"}, "<leader>D", [["_D]])
 -- debug git push for the lab pc
 vim.keymap.set("n", "gc", ":Git commit -a -m \"\"<Left>")
 vim.keymap.set("n", "gp", ":Git push<CR>")
+
+-- show the doc
+vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
+
+-- undotree
+-- vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+vim.keymap.set('n', '<leader>u', ":UndotreeToggle<CR> <BAR> :UndotreeFocus<CR>")
+

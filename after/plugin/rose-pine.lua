@@ -16,7 +16,7 @@ require('rose-pine').setup({
 		panel = 'surface',
 		panel_nc = 'base',
 		border = 'highlight_med',
-		comment = 'muted',
+		comment = 'subtle',
 		link = 'iris',
 		punctuation = 'subtle',
 
@@ -55,3 +55,8 @@ require('rose-pine').setup({
 
 -- Set colorscheme after options
 vim.cmd('colorscheme rose-pine')
+
+-- transparent bg
+vim.cmd [[
+    hi Normal guibg=NONE ctermbg=NONE
+]]

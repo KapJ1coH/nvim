@@ -4,6 +4,7 @@ vim.opt.guicursor = 'n:block,i:ver25'
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4

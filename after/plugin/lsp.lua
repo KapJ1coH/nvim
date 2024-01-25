@@ -3,8 +3,9 @@ local lsp_zero = require('lsp-zero')
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set("n", "<leader>lws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
@@ -26,6 +27,14 @@ require('mason-lspconfig').setup({
             require('lspconfig').lua_ls.setup(lua_opts)
         end,
     }
+})
+
+-- Autoformat on save with Black
+local group = vim.api.nvim_create_augroup("Black", { clear = true })
+vim.api.nvim_create_autocmd("bufWritePost", {
+	pattern = "*.py",
+	command = "silent !black %",
+	group = group,
 })
 
 local cmp = require('cmp')

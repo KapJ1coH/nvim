@@ -64,11 +64,15 @@ return require('packer').startup(function(use)
 
         }
     }
-    -- use 'tpope/vim-surround'
-    -- use {
-    --     "windwp/nvim-autopairs",
-    --     config = function() require("nvim-autopairs").setup {} end
-    -- }
+    use 'tpope/vim-surround'
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
+    use {
+        "folke/todo-comments.nvim"
+    }
 
     use {
         'fei6409/log-highlight.nvim',

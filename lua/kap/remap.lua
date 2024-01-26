@@ -48,6 +48,7 @@ end)
 -- replacing stuff
 vim.fn.setreg('t', "/send_tele\rV/decode_can_message\r/)\rdk pt")
 vim.fn.setreg('l', "/send_long_tele\rV/decode_long_telemetry_response\r/)\rdk pl")
+vim.fn.setreg('s', "Vy/step = \rnVpf.^")
 
 -- potential map for replacing stuff
 -- 

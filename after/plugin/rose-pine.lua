@@ -5,13 +5,15 @@ require('rose-pine').setup({
 	dark_variant = 'moon',
 	bold_vert_split = false,
 	dim_nc_background = false,
-	disable_background = true,
-	disable_float_background = false,
-	disable_italics = false,
+    styles = {
+        bold = true,
+        italic = true,
+        transparency = true,
+    },
 
 	--- @usage string hex value or named color from rosepinetheme.com/palette
 	groups = {
-		background = 'base',
+		background = 'NONE',
 		background_nc = '_experimental_nc',
 		panel = 'surface',
 		panel_nc = 'base',
@@ -50,13 +52,16 @@ require('rose-pine').setup({
 		-- If you only want to set what is written in this config exactly,
 		-- you can set the inherit option:
 		Search = { bg = 'gold', inherit = false },
-	}
+
+        TelescopeBorder = { fg = "highlight_high", bg = "none" },
+		TelescopeNormal = { bg = "none" },
+		TelescopePromptNormal = { bg = "base" },
+		TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+		TelescopeSelection = { fg = "text", bg = "base" },
+		TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+	},
+
 })
 
 -- Set colorscheme after options
 vim.cmd('colorscheme rose-pine')
-
--- transparent bg
-vim.cmd [[
-    hi Normal guibg=NONE ctermbg=NONE
-]]

@@ -12,4 +12,13 @@ vim.keymap.set('n', '<leader>fs', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end, {})
 
-
+require("telescope").setup {
+    defaults = {
+        -- ....
+    },
+    pickers = {
+        find_files = {
+            find_command = { "fd" }
+        },
+    }
+}

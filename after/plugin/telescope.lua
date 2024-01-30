@@ -12,6 +12,8 @@ vim.keymap.set('n', '<leader>fs', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end, {})
 
+local actions = require "telescope.actions"
+
 require("telescope").setup {
     defaults = {
         -- ....
@@ -20,5 +22,12 @@ require("telescope").setup {
         find_files = {
             find_command = { "fd" }
         },
+    },
+    buffers = {
+        mappings = {
+            i = {
+                ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+            }
+        }
     }
 }

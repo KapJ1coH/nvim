@@ -43,7 +43,8 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
-    use 'airblade/vim-gitgutter'
+    -- use 'airblade/vim-gitgutter'
+    use 'lewis6991/gitsigns.nvim'
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'better-defaults',

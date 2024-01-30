@@ -34,3 +34,5 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = ""
 -- vim.opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum} %s"
+
+vim.opt.modifiable = true

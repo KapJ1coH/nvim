@@ -41,7 +41,15 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
+
     use 'lewis6991/gitsigns.nvim'
+    use {
+        'lewis6991/spaceless.nvim',
+        config = function()
+            require'spaceless'.setup()
+        end
+    }
+
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'better-defaults',

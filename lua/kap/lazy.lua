@@ -1,55 +1,67 @@
+-- Lazy stuff
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+local imports = {
+    'wbthomason/packer.nvim',
 
-    use { 'mhartington/formatter.nvim' }
+    'mhartington/formatter.nvim',
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.2',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-    use({
+    {
+        'nvim-telescope/telescope.nvim', version = "0.1.2",
+        dependencies = { {'nvim-lua/plenary.nvim'} }
+    },
+    {
         'rose-pine/neovim',
-        as = 'rose-pine',
+        name = 'rose-pine',
         config = function()
             vim.cmd('colorscheme rose-pine-moon')
         end
-    })
+    },
 
-    use {
+    {
         "ThePrimeagen/refactoring.nvim",
-        requires = {
+        dependencies = {
             {"nvim-lua/plenary.nvim"},
             {"nvim-treesitter/nvim-treesitter"}
         }
-    }
+    },
 
-    use "stevearc/aerial.nvim"
+    "stevearc/aerial.nvim",
 
-    use {
+    {
         'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
-    use "lukas-reineke/indent-blankline.nvim"
+        dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+    },
+    "lukas-reineke/indent-blankline.nvim",
 
-    use('mhinz/vim-startify')
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-    use 'ThePrimeagen/harpoon'
-    use 'mbbill/undotree'
-    use 'tpope/vim-fugitive'
+    ('mhinz/vim-startify'),
+    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+    'ThePrimeagen/harpoon',
+    'mbbill/undotree',
+    'tpope/vim-fugitive',
 
-    use 'lewis6991/gitsigns.nvim'
+    'lewis6991/gitsigns.nvim',
 
-    use {"chrisgrieser/nvim-early-retirement",}
+    {"chrisgrieser/nvim-early-retirement",},
 
-    use {
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'better-defaults',
-        requires = {
+        dependencies = {
             --- Uncomment these if you want to manage LSP servers from neovim
             {'williamboman/mason.nvim'},
             {'williamboman/mason-lspconfig.nvim'},
@@ -65,27 +77,27 @@ return require('packer').startup(function(use)
             {'lukas-reineke/cmp-rg'},
 
         }
-    }
-    use 'tpope/vim-surround'
-    use {
+    },
+    'tpope/vim-surround',
+    {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
-    }
+    },
 
-    use {
+    {
         "folke/todo-comments.nvim"
-    }
+    },
 
-    use {
+    {
         'fei6409/log-highlight.nvim',
-    }
+    },
 
-    use "folke/neodev.nvim"
+    "folke/neodev.nvim",
 
     -- testing stuff
-    use {
+    {
         "nvim-neotest/neotest",
-        requires = {
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
@@ -93,23 +105,24 @@ return require('packer').startup(function(use)
             "nvim-neotest/neotest-vim-test",
             "nvim-neotest/neotest-plenary"
         }
-    }
-    use("petertriho/nvim-scrollbar")
+    },
+    "petertriho/nvim-scrollbar",
 
-    use({
+    {
         "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
+        build = "cd app && npm install",
         ft = { "markdown" },
-    })
-    use({
+    },
+    {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        as = 'lsp_lines.nvim',
+        name = 'lsp_lines.nvim',
         config = function()
             require("lsp_lines").setup()
             vim.diagnostic.config({
                 virtual_text = false,
             })
         end,
-    })
-end)
+    },
+}
 
+require('lazy').setup(imports)

@@ -43,12 +43,8 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
 
     use 'lewis6991/gitsigns.nvim'
-    use {
-        'lewis6991/spaceless.nvim',
-        config = function()
-            require'spaceless'.setup()
-        end
-    }
+
+    use {"chrisgrieser/nvim-early-retirement",}
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -98,15 +94,6 @@ return require('packer').startup(function(use)
             "nvim-neotest/neotest-plenary"
         }
     }
-
-    use({
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
-        requires = {
-            "nvim-lua/plenary.nvim",
-        },
-    })
-
     use("petertriho/nvim-scrollbar")
 
     use({

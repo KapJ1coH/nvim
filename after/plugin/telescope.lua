@@ -15,9 +15,6 @@ end, {})
 local actions = require "telescope.actions"
 
 require("telescope").setup {
-    defaults = {
-        -- ....
-    },
     pickers = {
         find_files = {
             find_command = { "fd" }

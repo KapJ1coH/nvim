@@ -29,7 +29,7 @@ vim.keymap.set("n", "/", "/\\c")
 
 
 -- useful file jumps
-vim.keymap.set("n", "<leader>vpp", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/packer.lua<CR>")
+vim.keymap.set("n", "<leader>vpp", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/lazy.lua<CR>")
 vim.keymap.set("n", "<leader>vpl", "<cmd>e $LOCALAPPDATA/nvim/after/plugin<CR>")
 vim.keymap.set("n", "<leader>vr", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/remap.lua<CR>")
 

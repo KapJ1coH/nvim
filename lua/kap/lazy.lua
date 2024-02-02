@@ -16,8 +16,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local imports = {
-    'wbthomason/packer.nvim',
-
     'mhartington/formatter.nvim',
 
     {

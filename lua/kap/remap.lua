@@ -32,16 +32,18 @@ vim.keymap.set("n", "/", "/\\c")
 vim.keymap.set("n", "<leader>vpp", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/lazy.lua<CR>")
 vim.keymap.set("n", "<leader>vpl", "<cmd>e $LOCALAPPDATA/nvim/after/plugin<CR>")
 vim.keymap.set("n", "<leader>vr", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/remap.lua<CR>")
+vim.keymap.set("n", "<leader>vn", "<cmd>e ~/Documents/notes<CR>")
 
 
 if username == 'timam' then
     vim.keymap.set("n", "<leader>vph", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/remap.lua<CR>")
     -- vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
+    vim.keymap.set("n", "<leader>vn", "<cmd>e ~/Documents/notes<CR>")
 elseif username == 'ty096829' then
     vim.keymap.set("n", "<leader>vph", "<cmd>e C:/sarnext/mmu/project_help.py<CR>")
     vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
-    vim.keymap.set("n", "<leader>vn", "<cmd>e C:/Users/ty096829/Documents/notes<CR>")
 end
+
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")

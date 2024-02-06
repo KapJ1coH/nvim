@@ -40,7 +40,7 @@ if username == 'timam' then
 elseif username == 'ty096829' then
     vim.keymap.set("n", "<leader>vph", "<cmd>e C:/sarnext/mmu/project_help.py<CR>")
     vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
-    vim.keymap.set("n", "<leader>vn", "<cmd>e C:/Users/ty096829/Documents/notes.md<CR>")
+    vim.keymap.set("n", "<leader>vn", "<cmd>e C:/Users/ty096829/Documents/notes<CR>")
 end
 
 vim.keymap.set("n", "<leader><leader>", function()

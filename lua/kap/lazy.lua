@@ -46,7 +46,7 @@ local imports = {
     },
     "lukas-reineke/indent-blankline.nvim",
 
-    ('mhinz/vim-startify'),
+    'mhinz/vim-startify',
     {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
@@ -83,11 +83,13 @@ local imports = {
     },
 
     {
-        "folke/todo-comments.nvim"
+        "folke/todo-comments.nvim",
+        lazy=true,
     },
 
     {
         'fei6409/log-highlight.nvim',
+        lazy=true,
     },
 
     "folke/neodev.nvim",
@@ -95,6 +97,7 @@ local imports = {
     -- testing stuff
     {
         "nvim-neotest/neotest",
+        lazy=true,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
@@ -108,9 +111,11 @@ local imports = {
 
     {
         "iamcco/markdown-preview.nvim",
+        lazy=true,
         build = "cd app && npm install",
         ft = { "markdown" },
     },
+    'ixru/nvim-markdown',
     {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         name = 'lsp_lines.nvim',

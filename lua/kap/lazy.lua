@@ -1,4 +1,5 @@
 -- Lazy stuff
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -16,12 +17,32 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local imports = {
-    'mhartington/formatter.nvim',
 
+    -- Git stuff
+    'akinsho/git-conflict.nvim',
+    'tpope/vim-fugitive',
+    'lewis6991/gitsigns.nvim',
+
+
+    -- Formatter
+    'mhartington/formatter.nvim',
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            {"nvim-lua/plenary.nvim"},
+            {"nvim-treesitter/nvim-treesitter"}
+        }
+    },
+
+    -- Code navigation
+    'ThePrimeagen/harpoon',
     {
         'nvim-telescope/telescope.nvim', version = "0.1.2",
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
+    "stevearc/aerial.nvim",
+
+    -- Colortheme
     {
         'rose-pine/neovim',
         name = 'rose-pine',
@@ -31,16 +52,6 @@ local imports = {
     },
 
     {
-        "ThePrimeagen/refactoring.nvim",
-        dependencies = {
-            {"nvim-lua/plenary.nvim"},
-            {"nvim-treesitter/nvim-treesitter"}
-        }
-    },
-
-    "stevearc/aerial.nvim",
-
-    {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
     },
@@ -48,11 +59,8 @@ local imports = {
 
     'mhinz/vim-startify',
     {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-    'ThePrimeagen/harpoon',
     'mbbill/undotree',
-    'tpope/vim-fugitive',
 
-    'lewis6991/gitsigns.nvim',
 
     {"chrisgrieser/nvim-early-retirement",},
 

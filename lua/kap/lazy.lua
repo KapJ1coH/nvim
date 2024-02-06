@@ -19,13 +19,13 @@ vim.g.maplocalleader = " "
 local imports = {
 
     -- Git stuff
-    'akinsho/git-conflict.nvim',
-    'tpope/vim-fugitive',
+    { 'akinsho/git-conflict.nvim', event = "VeryLazy"},
+    { 'tpope/vim-fugitive', event = "VeryLazy" },
     'lewis6991/gitsigns.nvim',
 
 
     -- Formatter
-    'mhartington/formatter.nvim',
+    { 'mhartington/formatter.nvim', event = "VeryLazy", },
     {
         "ThePrimeagen/refactoring.nvim",
         dependencies = {
@@ -40,7 +40,7 @@ local imports = {
         'nvim-telescope/telescope.nvim', version = "0.1.2",
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
-    "stevearc/aerial.nvim",
+    { "stevearc/aerial.nvim", event = "VeryLazy"},
 
     -- Colortheme
     {
@@ -51,19 +51,21 @@ local imports = {
         end
     },
 
+    -- UI
+    "petertriho/nvim-scrollbar",
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
     },
-    "lukas-reineke/indent-blankline.nvim",
-
+    { "lukas-reineke/indent-blankline.nvim", event = "VeryLazy", },
     'mhinz/vim-startify',
-    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-    'mbbill/undotree',
 
-
+    -- Performance
     {"chrisgrieser/nvim-early-retirement",},
 
+    -- Treesitter and Lsp stuff
+    'mbbill/undotree',
+    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'better-defaults',
@@ -84,28 +86,37 @@ local imports = {
 
         }
     },
-    'tpope/vim-surround',
+
+    -- Text fuckery
     {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     },
-
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    },
     {
         "folke/todo-comments.nvim",
         lazy=true,
     },
-
     {
         'fei6409/log-highlight.nvim',
-        lazy=true,
+        event = "VeryLazy",
     },
 
-    "folke/neodev.nvim",
+    { "folke/neodev.nvim", event = "VeryLazy", },
 
     -- testing stuff
     {
         "nvim-neotest/neotest",
-        lazy=true,
+        event = "VeryLazy",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
@@ -115,11 +126,11 @@ local imports = {
             "nvim-neotest/neotest-plenary"
         }
     },
-    "petertriho/nvim-scrollbar",
 
+    -- Markdown
     {
         "iamcco/markdown-preview.nvim",
-        lazy=true,
+        event = "VeryLazy",
         build = "cd app && npm install",
         ft = { "markdown" },
     },
@@ -136,4 +147,10 @@ local imports = {
     },
 }
 
-require('lazy').setup(imports)
+local settings = {
+    defaults = {
+        lazy = true,
+    },
+}
+
+require('lazy').setup(imports, settings)

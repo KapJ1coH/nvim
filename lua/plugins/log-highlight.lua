@@ -1,4 +1,4 @@
-require('log-highlight').setup {
+local config = {
     -- The following options support either a string or a table of strings.
 
     -- The file extensions.
@@ -16,4 +16,10 @@ require('log-highlight').setup {
         '/var/log/.*',
         'messages%..*',
     },
+}
+
+return {
+    'fei6409/log-highlight.nvim',
+    event = "VeryLazy",
+    config = config,
 }

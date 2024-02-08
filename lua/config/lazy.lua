@@ -26,20 +26,8 @@ local imports = {
 
     -- Formatter
     { 'mhartington/formatter.nvim', event = "VeryLazy", },
-    {
-        "ThePrimeagen/refactoring.nvim",
-        dependencies = {
-            {"nvim-lua/plenary.nvim"},
-            {"nvim-treesitter/nvim-treesitter"}
-        }
-    },
 
     -- Code navigation
-    'ThePrimeagen/harpoon',
-    {
-        'nvim-telescope/telescope.nvim', version = "0.1.2",
-        dependencies = { {'nvim-lua/plenary.nvim'} }
-    },
 
     -- Colortheme
     {
@@ -52,11 +40,6 @@ local imports = {
 
     -- UI
     "petertriho/nvim-scrollbar",
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
-    },
-    { "lukas-reineke/indent-blankline.nvim", event = "VeryLazy", },
     'mhinz/vim-startify',
 
     -- Performance
@@ -105,12 +88,7 @@ local imports = {
         "folke/todo-comments.nvim",
         lazy=true,
     },
-    {
-        'fei6409/log-highlight.nvim',
-        event = "VeryLazy",
-    },
 
-    { "folke/neodev.nvim", event = "VeryLazy", },
 
     -- testing stuff
     {

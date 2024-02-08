@@ -1,2 +1,7 @@
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
-
+return {
+    'tpope/vim-fugitive',
+    event = "VeryLazy",
+    keys = {
+        '<leader>gs', vim.cmd.Git
+    },
+}

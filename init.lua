@@ -1,1 +1,1 @@
-require("kap")
+require("config")

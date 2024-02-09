@@ -1,5 +1,6 @@
 local M = {
     "nvim-treesitter/nvim-treesitter",
+    event = "BufEnter",
     build = ":TSUpdate",
     config = function()
         local configs = require("nvim-treesitter.configs")

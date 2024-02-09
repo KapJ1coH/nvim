@@ -3,6 +3,7 @@
         "vim",
         "on_attach",
         "mark",
-        "ui"
+        "ui",
+        "local"
     ]
 }

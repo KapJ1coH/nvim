@@ -16,118 +16,26 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local imports = {
-
-    -- Git stuff
-    { 'akinsho/git-conflict.nvim', event = "VeryLazy"},
-    { 'tpope/vim-fugitive', event = "VeryLazy" },
-    'lewis6991/gitsigns.nvim',
-
-
-    -- Formatter
-    { 'mhartington/formatter.nvim', event = "VeryLazy", },
-
-    -- Code navigation
-
-    -- Colortheme
-    {
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine-moon')
-        end
-    },
-
-    -- UI
-    "petertriho/nvim-scrollbar",
-    'mhinz/vim-startify',
-
-    -- Performance
-    {"chrisgrieser/nvim-early-retirement",},
-
-    -- Treesitter and Lsp stuff
-    'mbbill/undotree',
-    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'better-defaults',
-        dependencies = {
-            --- Uncomment these if you want to manage LSP servers from neovim
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
-
-            {'nanotee/nvim-lsp-basics'},
-            {'lukas-reineke/cmp-rg'},
-
-        }
-    },
-
-    -- Text fuckery
-    {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    },
-    {
-        "kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
-    },
-    {
-        "folke/todo-comments.nvim",
-        lazy=true,
-    },
-
-
-    -- testing stuff
-    {
-        "nvim-neotest/neotest",
-        event = "VeryLazy",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            "antoinemadec/FixCursorHold.nvim",
-            "nvim-neotest/neotest-python",
-            "nvim-neotest/neotest-vim-test",
-            "nvim-neotest/neotest-plenary"
-        }
-    },
-
-    -- Markdown
-    {
-        "iamcco/markdown-preview.nvim",
-        event = "VeryLazy",
-        build = "cd app && npm install",
-        ft = { "markdown" },
-    },
-    'ixru/nvim-markdown',
-    {
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        name = 'lsp_lines.nvim',
-        config = function()
-            require("lsp_lines").setup()
-            vim.diagnostic.config({
-                virtual_text = false,
-            })
-        end,
-    },
-}
 
 local settings = {
     defaults = {
         lazy = true,
     },
+    performance = {
+        rtp = {
+            -- disable some rtp plugins
+            disabled_plugins = {
+                "gzip",
+                -- "matchit",
+                -- "matchparen",
+                -- "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+            },
+        },
+    },
 }
 
-require('lazy').setup("plugins", imports, settings)
+require('lazy').setup("plugins", settings)

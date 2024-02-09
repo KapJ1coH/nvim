@@ -1,8 +1,26 @@
 -- lazy way
 return {
+        -- 'VonHeikemen/lsp-zero.nvim',
+        -- dependencies = {
+        --     --- Uncomment these if you want to manage LSP servers from neovim
+        --     {'williamboman/mason.nvim'},
+        --     {'williamboman/mason-lspconfig.nvim'},
+
+        --     -- LSP Support
+        --     {'neovim/nvim-lspconfig'},
+        --     -- Autocompletion
+        --     {'hrsh7th/nvim-cmp'},
+        --     {'hrsh7th/cmp-nvim-lsp'},
+        --     {'L3MON4D3/LuaSnip'},
+
+        --     {'nanotee/nvim-lsp-basics'},
+        --     {'lukas-reineke/cmp-rg'},
+
+        -- }
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
+        -- branch = 'better-defaults',
         lazy = true,
         config = false,
         init = function()
@@ -18,6 +36,24 @@ return {
     },
 
     -- Autocompletion
+-- local cmp = require('cmp')
+-- 
+-- cmp.setup({
+--   preselect = 'item',
+--   completion = {
+--     completeopt = 'menu,menuone,noinsert'
+--   },
+--   mapping = cmp.mapping.preset.insert({
+--      ['<CR>'] = cmp.mapping.confirm({select = true}),
+--   })
+-- })
+-- 
+-- -- If you want insert `(` after select function or method item
+-- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+-- cmp.event:on(
+--   'confirm_done',
+--   cmp_autopairs.on_confirm_done()
+-- )
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',

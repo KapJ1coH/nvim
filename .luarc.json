@@ -1,6 +1,8 @@
 {
     "diagnostics.globals": [
         "vim",
-        "on_attach"
+        "on_attach",
+        "mark",
+        "ui"
     ]
 }

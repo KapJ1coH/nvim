@@ -10,9 +10,9 @@ local highlight = {
 
 
 return {
-
     "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
+    lazy = true,
+    -- event = "VeryLazy",
     config = function()
         require("ibl").setup {
             indent = { highlight = highlight }

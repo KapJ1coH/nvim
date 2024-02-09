@@ -5,22 +5,20 @@ return {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-        require("telescope").setup {
-            pickers = {
-                find_files = {
-                    find_command = { "fd" }
-                },
+    opts = {
+        pickers = {
+            find_files = {
+                find_command = { "fd" }
             },
-            buffers = {
-                mappings = {
-                    i = {
-                        ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
-                    }
+        },
+        buffers = {
+            mappings = {
+                i = {
+                    ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
                 }
             }
         }
-    end,
+    },
     keys = {
         { '<leader>ff',  builtin.find_files,  {} },
         { '<leader>lg',  builtin.live_grep,   {} },

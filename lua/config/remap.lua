@@ -45,6 +45,8 @@ elseif username == 'ty096829' then
     vim.keymap.set("n", "<leader>vn", "<cmd>e C:/Users/ty096829/Documents/Notes/notes.md<CR>")
 end
 
+-- compile cpp local code
+vim.keymap.set("n", "<leader>c", "<cmd>!clang % && .\\a.exe<CR>")
 
 
 vim.keymap.set("n", "<leader><leader>", function()
@@ -78,9 +80,6 @@ vim.keymap.set("n", "gp", ":Git push<CR>")
 -- show the doc
 vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
--- undotree
--- vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-vim.keymap.set('n', '<leader>u', ":UndotreeToggle<CR> <BAR> :UndotreeFocus<CR>")
 
 -- buffer jumping
 vim.keymap.set('n', '<C-S-Left>', ':bprev<CR>')

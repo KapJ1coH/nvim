@@ -40,8 +40,8 @@ return {
         event = 'ColorScheme',
         opts = {
             options = {
-                -- theme = bubbles_theme,
-                theme = 'tokyonight',
+                theme = bubbles_theme,
+                -- theme = 'tokyonight',
                 component_separators = '|',
                 section_separators = { left = '', right = '' },
             },

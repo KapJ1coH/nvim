@@ -1,4 +1,12 @@
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
 -- fat cursor in norman and thin in insert
+--
 vim.opt.guicursor = 'n:block,i:ver25'
 
 vim.opt.nu = true

@@ -1,30 +1,13 @@
--- local M = {
---     "stevearc/aerial.nvim",
---     -- event = "VeryLazy",
---     config = function()
---         on_attach = function(bufnr)
---             -- Jump forwards/backwards with '{' and '}'
---             vim.keymap.set({ "n", "v" }, "(", "<cmd>AerialPrev<CR>", { buffer = bufnr })
---             vim.keymap.set({ "n", "v" }, ")", "<cmd>AerialNext<CR>", { buffer = bufnr })
---         end
---     end,
---     keys = {
---         { "<leader>ae", "<cmd>AerialNavToggle<CR>" },
---     }
--- }
-
 return {
     {
         "stevearc/aerial.nvim",
         lazy = false,
         -- event = "BufEnter",
-        config = function()
-        end,
         opts = function()
             local opts = {
-                -- attach_mode = "global",
+                attach_mode = "global",
                 on_attach = function(bufnr)
-                    -- Jump forwards/backwards with '{' and '}'
+                    -- Jump forwards/backwards with '(' and ')'
                     vim.keymap.set({ "n", "v" }, "(", "<cmd>AerialPrev<CR>", { buffer = bufnr })
                     vim.keymap.set({ "n", "v" }, ")", "<cmd>AerialNext<CR>", { buffer = bufnr })
                 end,

@@ -2,7 +2,7 @@
 local opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
-    style = "night",         -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+    style = "night",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
     light_style = "day",    -- The theme is used when the background is set to light
     transparent = true,     -- Enable this to disable setting the background color
     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
@@ -36,13 +36,44 @@ local opts = {
     --- function will be called with a Highlights and ColorScheme table
     ---@param highlights Highlights
     ---@param colors ColorScheme
-    on_highlights = function(highlights, colors) end,
+    on_highlights = function(hl, c)
+        local prompt = "#000000"
+        hl.TelescopeNormal = {
+            bg = c.transparent,
+            fg = c.fg_dark,
+        }
+        hl.TelescopeBorder = {
+            bg = c.transparent,
+            fg = c.bg_dark,
+        }
+        hl.TelescopePromptNormal = {
+            bg = c.transparent,
+        }
+        hl.TelescopePromptBorder = {
+            bg = c.transparent,
+            fg = prompt,
+        }
+        hl.TelescopePromptTitle = {
+            bg = c.transparent,
+            fg = prompt,
+        }
+        hl.TelescopePreviewTitle = {
+            bg = c.transparent,
+            fg = c.bg_dark,
+        }
+        hl.TelescopeResultsTitle = {
+            bg = c.transparent,
+            fg = c.bg_dark,
+        }
+    end,
 }
 return {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 2000,
-    opts = opts,
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = opts,
+    },
 }
 -- local opts = {
 --     --- @usage 'auto'|'main'|'moon'|'dawn'

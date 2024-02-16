@@ -3,6 +3,7 @@ return {
     version = "*",
     lazy = false,
     dependencies = {
+        "folke/tokyonight.nvim", 
         "nvim-tree/nvim-web-devicons",
     },
 

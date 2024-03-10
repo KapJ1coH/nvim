@@ -6,6 +6,7 @@
   "alpha-nvim": { "branch": "main", "commit": "41283fb402713fc8b327e60907f74e46166f4cfd" },
   "cellular-automaton.nvim": { "branch": "main", "commit": "b7d056dab963b5d3f2c560d92937cb51db61cb5b" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
+  "dealwithit.vim": { "branch": "main", "commit": "b791c9f79badf3241e5f778578df9ea324752229" },
   "duck.nvim": { "branch": "main", "commit": "0ca969d549f5d546ae395e163130024b51694235" },
   "flit.nvim": { "branch": "main", "commit": "94419242ba07170b0009514d745e617b120964f4" },
   "formatter.nvim": { "branch": "master", "commit": "cb4778b8432f1ae86dae4634c0b611cb269a4c2f" },

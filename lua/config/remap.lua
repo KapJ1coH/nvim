@@ -43,8 +43,9 @@ elseif username == 'ty096829' then
     vim.keymap.set("n", "<leader>vph", "<cmd>e C:/sarnext/mmu/project_help.py<CR>")
     vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
     vim.keymap.set("n", "<leader>vn", "<cmd>e C:/Users/ty096829/Documents/Notes/notes.md<CR>")
+    vim.keymap.set("n", "<leader>rg", [[:!python mmu_test_sw_lib\mmu_test_sw_lib\Utilities\reg_lookup\reg_lookup.py <C-r><C-w><cr>]])
 end
-
+local a = "0x8090300C"
 -- compile cpp local code
 vim.keymap.set("n", "<leader>c", "<cmd>!clang % && .\\a.exe<CR>")
 

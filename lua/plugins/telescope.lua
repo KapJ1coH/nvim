@@ -27,12 +27,12 @@ return {
         { '<leader>fh',  builtin.help_tags,   {} },
         { '<leader>gff', builtin.git_files,   {} },
         { '<leader>fg',  builtin.grep_string, {} },
-
         -- $env:Path += ";$(Get-Location)"
         { '<leader>fs', function()
             builtin.grep_string({ search = vim.fn.input("Grep > ") });
         end,
         },
+
 
     },
     config = function()

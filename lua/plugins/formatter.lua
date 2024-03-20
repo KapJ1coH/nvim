@@ -2,9 +2,10 @@ return {
     "mhartington/formatter.nvim",
     -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
     event = "VeryLazy",
+    enabled = false,
     keys = {
-        {"<leader>f", ':Format<cr>', silent = true, noremap = true },
-        {"<leader>F", ':FormatWrite<CR>', silent = true, noremap = true },
+        { "<leader>f", ':Format<cr>',      silent = true, noremap = true },
+        { "<leader>F", ':FormatWrite<CR>', silent = true, noremap = true },
     },
     config = function()
         local formatter = require("formatter")

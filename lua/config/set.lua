@@ -1,18 +1,18 @@
 -- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
 -- fat cursor in norman and thin in insert
 --
-vim.opt.guicursor = 'n:block,i:ver25'
+vim.opt.guicursor = "n:block,i:ver25"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd([[colorscheme tokyonight]])
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -46,22 +46,20 @@ vim.opt.colorcolumn = ""
 
 vim.opt.modifiable = true
 
-
 vim.diagnostic.config({
-    virtual_text = false,
-    float = {
-        focusable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-    },
-    signs = true,
-    underline = true,
-    update_in_insert = true,
-    severity_sort = false,
+	virtual_text = false,
+	float = {
+		focusable = false,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = false,
 })
 
 vim.keymap.set("n", "<leader>i", vim.diagnostic.open_float)
-

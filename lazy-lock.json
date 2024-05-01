@@ -48,4 +48,3 @@
   "vim-fugitive": { "branch": "master", "commit": "dac8e5c2d85926df92672bf2afb4fc48656d96c7" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "zellij-nav.nvim": { "branch": "main", "commit": "25930804397ef540bd2de62f9897bc2db61f9baa" }
-}

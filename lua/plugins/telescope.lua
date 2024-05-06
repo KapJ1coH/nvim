@@ -15,6 +15,11 @@ return {
 	},
 	lazy = false,
 	opts = {
+        defaults = {
+            file_ignore_patterns = {
+                "tags"
+            }
+        },
 		pickers = {
 			find_files = {
 				find_command = { "fd" },

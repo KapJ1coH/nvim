@@ -15,11 +15,11 @@ return {
 	},
 	lazy = false,
 	opts = {
-        defaults = {
-            file_ignore_patterns = {
-                "tags"
-            }
-        },
+		defaults = {
+			file_ignore_patterns = {
+				"tags",
+			},
+		},
 		pickers = {
 			find_files = {
 				find_command = { "fd" },
@@ -68,8 +68,8 @@ return {
 		{ "<leader>fh", builtin.help_tags, {} },
 		{ "<leader>gff", builtin.git_files, {} },
 		{ "<leader>fg", builtin.grep_string, {} },
-		{ "<leader>t", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", {} },
-		{ "<leader>tb", ":Telescope file_browser<CR>", {} },
+		{ "<leader>ft", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", {} },
+		{ "<leader>ftb", ":Telescope file_browser<CR>", {} },
 		{
 			"<leader>fr",
 			function()

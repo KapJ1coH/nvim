@@ -20,7 +20,7 @@ return {
 			end,
 		},
 		{
-			"<leader>xt",
+			"<leader>t",
 			mode = "t",
 			function()
 				require("FTerm").toggle()

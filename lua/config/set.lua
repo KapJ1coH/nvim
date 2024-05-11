@@ -9,8 +9,12 @@ vim.opt.termguicolors = true
 --
 vim.opt.guicursor = "n:block,i:ver25"
 
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
+
+vim.g['tex_flavor'] = 'latex'
+
 
 vim.cmd([[colorscheme tokyonight]])
 

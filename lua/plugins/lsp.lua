@@ -1,22 +1,5 @@
 -- lazy way
 return {
-    -- 'VonHeikemen/lsp-zero.nvim',
-    -- dependencies = {
-    --     --- Uncomment these if you want to manage LSP servers from neovim
-    --     {'williamboman/mason.nvim'},
-    --     {'williamboman/mason-lspconfig.nvim'},
-
-    --     -- LSP Support
-    --     {'neovim/nvim-lspconfig'},
-    --     -- Autocompletion
-    --     {'hrsh7th/nvim-cmp'},
-    --     {'hrsh7th/cmp-nvim-lsp'},
-    --     {'L3MON4D3/LuaSnip'},
-
-    --     {'nanotee/nvim-lsp-basics'},
-    --     {'lukas-reineke/cmp-rg'},
-
-    -- }
     {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v3.x",
@@ -54,50 +37,6 @@ return {
     --   'confirm_done',
     --   cmp_autopairs.on_confirm_done()
     -- )
-    {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
-        dependencies = {
-            { "L3MON4D3/LuaSnip" },
-        },
-        config = function()
-            -- Here is where you configure the autocompletion settings.
-            local lsp_zero = require("lsp-zero")
-            lsp_zero.extend_cmp()
-
-            -- And you can configure cmp even more, if you want to.
-            local cmp = require("cmp")
-            local cmp_action = lsp_zero.cmp_action()
-            local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-            cmp.setup({
-                sources = {
-                    { name = "path" },
-                    { name = "nvim_lsp" },
-                    { name = "nvim_lua" },
-                    { name = "rg" },
-                    { name = "fd" },
-                    { name = "buffer" },
-                    { name = "nvim_lsp" },
-                },
-                formatting = lsp_zero.cmp_format(),
-                mapping = cmp.mapping.preset.insert({
-                    ["<C-f>"] = cmp_action.luasnip_jump_forward(),
-                    ["<C-b>"] = cmp_action.luasnip_jump_backward(),
-                    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-d>"] = cmp.mapping.scroll_docs(4),
-                    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-                    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                    ["<C-Space>"] = cmp.mapping.complete(),
-                }),
-                preselect = "item",
-                completion = {
-                    completeopt = "menu,menuone,noinsert",
-                },
-            })
-        end,
-    },
 
     -- LSP
     {
@@ -150,40 +89,6 @@ return {
                 -- vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, opts)
             end)
 
-            -- require('lspconfig').texlab.setup {
-            --     cmd = { 'texlab' },
-            --     filetypes = { 'tex', 'bib' },
-            --     settings = {
-            --         texlab = {
-            --             auxDirectory = '.build',
-            --             bibtexFormatter = 'texlab',
-            --             build = _G.TeXMagicBuildConfig,
-            --             -- build = {
-            --             --     args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '-outdir=.build', '%f' },
-            --             --     executable = 'latexmk',
-            --             --     forwardSearchAfter = false,
-            --             --     onSave = true,
-            --             -- },
-            --             chktex = {
-            --                 onEdit = false,
-            --                 onOpenAndSave = true,
-            --             },
-            --             diagnosticsDelay = 300,
-            --             formatterLineLength = 80,
-            --             forwardSearch = {
-            --                 args = {},
-            --                 executable = 'okular',
-            --                 onSave = false,
-            --             },
-            --             latexFormatter = 'latexindent',
-            --             latexindent = {
-            --                 modifyLineBreaks = false,
-            --             },
-            --         },
-            --     },
-            -- }
-
-
             require("mason-lspconfig").setup({
                 ensure_installed = { "lua_ls", "pyright" },
                 handlers = {
@@ -197,12 +102,12 @@ return {
             })
 
             -- Autoformat on save with Black
-            -- local group = vim.api.nvim_create_augroup("Black", { clear = true })
-            -- vim.api.nvim_create_autocmd("bufWritePost", {
-            --     pattern = "*.py",
-            --     command = "silent !black %",
-            --     group = group,
-            -- })
+            local group = vim.api.nvim_create_augroup("Black", { clear = true })
+            vim.api.nvim_create_autocmd("bufWritePost", {
+                pattern = "*.py",
+                command = "silent !black %",
+                group = group,
+            })
         end,
     },
 }

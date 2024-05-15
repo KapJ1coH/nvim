@@ -1,10 +1,8 @@
-return {   -- This plugin
-        "Zeioth/compiler.nvim",
-        cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
-        dependencies = { "stevearc/overseer.nvim" },
-        opts = {},
-    },
-    { -- The task runner we use
+return { -- This plugin
+    "Zeioth/compiler.nvim",
+    enabled = false,
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    dependencies = {
         "stevearc/overseer.nvim",
         commit = "68a2d344cea4a2e11acfb5690dc8ecd1a1ec0ce0",
         cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
@@ -16,4 +14,12 @@ return {   -- This plugin
                 default_detail = 1
             },
         },
-    }
+    },
+    opts = {},
+    keys = {
+        { "<leader>co", "<cmd>CompilerOpen<cr>" },
+        { "<leader>ct", "<cmd>CompilerToggleResults<cr>" },
+        { "<leader>cr", "<cmd>CompilerRedo<cr>" },
+    },
+}
+

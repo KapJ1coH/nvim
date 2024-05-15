@@ -9,6 +9,30 @@ return {
         vim.o.foldmethod = 'expr'
         vim.o.foldexpr = 'vimtex#fold#level(v:lnum)'
         vim.o.foldlevel = 2
+        -- vim.g.vimtex_compiler_method = {
+        --     latexmk = {
+        --         options = {
+        --             '-xelatex',
+        --             -- '-file-line-error',
+        --             -- '-synctex=1',
+        --             -- '-interaction=nonstopmode',
+        --             -- '-shell-escape',
+        --         },
+        --     },
+        -- }
+        vim.g.vimtex_compiler_latexmk_engines = {
+            _ = '-xelatex'
+        }
+        vim.g.vimtex_compiler_latexmk = {
+            options = {
+                '-file-line-error',
+                '-synctex=1',
+                '-interaction=nonstopmode',
+                '-shell-escape',
+            },
+        }
+
+        vim.g.vimtex_indent_enabled = 1
 
         -- Minimal lsp config
         local lspconfig = require("lspconfig")
@@ -45,25 +69,3 @@ return {
     end,
     -- ft =  "tex",
 }
-
--- return {
---     'jakewvincent/texmagic.nvim',
-
---     ft = 'tex',
-
---     opts = {
---         pdflatex = {    -- This has the same name as a default engine but would
---                         -- be preferred over the same-name default if defined
---             executable = "latexmk",
---             args = {
---                 "-pdflatex",
---                 "-interaction=nonstopmode",
---                 "-synctex=1",
---                 "-outdir=.build",
---                 "-pv",
---                 "%f"
---             },
---             isContinuous = false
---         },
---     }
--- }

@@ -9,6 +9,21 @@ vim.opt.termguicolors = true
 --
 vim.opt.guicursor = "n:block,i:ver25"
 
+-- autoindent and such
+-- Enable file type detection and plugin
+vim.cmd('filetype plugin indent on')
+
+-- Set auto-indent options
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.tabstop = 4       -- Number of spaces that a <Tab> counts for
+vim.o.shiftwidth = 4    -- Number of spaces to use for each step of (auto)indent
+vim.o.expandtab = true  -- Convert tabs to spaces
+vim.o.softtabstop = 4
+
+vim.opt.smartindent = true
+
+
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -18,12 +33,6 @@ vim.g['tex_flavor'] = 'latex'
 
 vim.cmd([[colorscheme tokyonight]])
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
-vim.opt.smartindent = true
 
 vim.opt.modifiable = true
 

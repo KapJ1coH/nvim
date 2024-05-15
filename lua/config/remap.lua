@@ -46,8 +46,6 @@ elseif username == "ty096829" then
 	)
 end
 local a = "0x8090300C"
--- compile cpp local code
-vim.keymap.set("n", "<leader>c", "<cmd>!clang % && .\\a.exe<CR>")
 
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")

@@ -31,7 +31,7 @@ local config = {
 return {
 	"ecthelionvi/NeoComposer.nvim",
 	event = "BufEnter",
-	-- enabled = false,
+	enabled = false,
 
 	dependencies = { "kkharji/sqlite.lua" },
 	opts = config,

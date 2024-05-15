@@ -4,7 +4,9 @@ return {
     -- tag = "v2.15", -- uncomment to pin to a specific release
     init = function()
         -- vim.g.vimtex_callback_progpath = "C:\\tools\\neovim\\nvim-win64\\bin\\nvim.exe"
-        vim.g.vimtex_view_general_viewer = 'okular'
+        -- vim.g.vimtex_view_general_viewer = 'okular'
+        vim.g.vimtex_view_general_viewer = 'SumatraPDF'
+        vim.g.vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
 
         vim.o.foldmethod = 'expr'
         vim.o.foldexpr = 'vimtex#fold#level(v:lnum)'

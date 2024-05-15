@@ -17,8 +17,8 @@ return {
         local i = ls.insert_node
         ls.config.set_config(opts)
 
-        ls.add_snippets("lua", {
-            s("hello", {
+        ls.add_snippets("latex", {
+            s("bjs", {
                 t("Hello, world!"),
                 i(1),
             }),

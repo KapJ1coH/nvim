@@ -11,7 +11,6 @@ return {
 		-- 	build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 		-- },
 		{ "nvim-telescope/telescope-file-browser.nvim" },
-		{ "nvim-telescope/telescope-frecency.nvim" },
 	},
 	lazy = false,
 	opts = {
@@ -70,13 +69,6 @@ return {
 		{ "<leader>fg", builtin.grep_string, {} },
 		{ "<leader>ft", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", {} },
 		{ "<leader>ftb", ":Telescope file_browser<CR>", {} },
-		{
-			"<leader>fr",
-			function()
-				require("telescope").extensions.frecency.frecency({})
-			end,
-			{},
-		},
 		-- $env:Path += ";$(Get-Location)"
 		{
 			"<leader>fs",
@@ -89,7 +81,6 @@ return {
 	config = function()
 		-- require("telescope").load_extension("fzf")
 		require("telescope").load_extension("file_browser")
-		require("telescope").load_extension("frecency")
 		-- require("tokyonight").setup({
 		--     on_highlights = function(hl, c)
 		--         local prompt = "#2d3149"

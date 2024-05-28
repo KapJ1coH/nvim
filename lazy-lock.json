@@ -11,6 +11,7 @@
   "dealwithit.vim": { "branch": "main", "commit": "b791c9f79badf3241e5f778578df9ea324752229" },
   "duck.nvim": { "branch": "main", "commit": "d8a6b08af440e5a0e2b3b357e2f78bb1883272cd" },
   "flit.nvim": { "branch": "main", "commit": "56490317983218b09698f8c960c3669958b12b32" },
+  "formatter.nvim": { "branch": "master", "commit": "ad246d34ce7a32f752071ed81b09b94e6b127fad" },
   "friendly-snippets": { "branch": "main", "commit": "d0610077b6129cf9f7f78afbe3a1425d60f6e2f1" },
   "git-conflict.nvim": { "branch": "main", "commit": "5a8b94276bbd9c18ecb0763061b101217cecba9d" },
   "gitsigns.nvim": { "branch": "main", "commit": "af3fdad8ddcadbdad835975204f6503310526fd9" },

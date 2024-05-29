@@ -67,6 +67,7 @@ return {
 		{ "<leader>fh", builtin.help_tags, {} },
 		{ "<leader>gff", builtin.git_files, {} },
 		{ "<leader>fg", builtin.grep_string, {} },
+		{ "<leader>fr", builtin.old_files, {} },
 		{ "<leader>ft", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", {} },
 		{ "<leader>ftb", ":Telescope file_browser<CR>", {} },
 		-- $env:Path += ";$(Get-Location)"

@@ -292,7 +292,7 @@ end
 
 return {
     "goolord/alpha-nvim",
-    dependencies = {'kyazdani42/nvim-web-devicons', },
+    dependencies = {'nvim-tree/nvim-web-devicons', },
     lazy = false,
     config = function()
         if (options ~= nil) then

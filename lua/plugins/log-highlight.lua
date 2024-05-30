@@ -21,5 +21,5 @@ local config = {
 return {
     'fei6409/log-highlight.nvim',
     event = "VeryLazy",
-    config = config,
+    opts = config,
 }

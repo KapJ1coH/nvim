@@ -38,10 +38,7 @@ return {
             "<leader>t",
             mode = "t",
             function()
-                if not is_floating_window_open() then
-                    require("FTerm").toggle()
-                end
-                print(vim.api.nvim_tabpage_list_wins(0))
+                require("FTerm").toggle()
             end,
         },
     },

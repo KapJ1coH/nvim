@@ -18,6 +18,7 @@ return {
 			python = { "isort", "ruff_fix", "black" },
 			-- Use a sub-list to run only the first available formatter
 			xml = { "xmlformat" },
+			json = { "jq" },
 		},
 		format_on_save = {
 			timeout_ms = 100,

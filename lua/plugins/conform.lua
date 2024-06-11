@@ -22,7 +22,7 @@ return {
 		},
 		format_on_save = {
 			timeout_ms = 100,
-			-- lsp_fallback = true,
+			lsp_fallback = true,
 		},
 	},
 	-- init = function()

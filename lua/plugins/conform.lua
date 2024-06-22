@@ -22,6 +22,7 @@ return {
             javascript = { "prettier" },
             html = { "prettier" },
             css = { "prettier" },
+            clojure = {"cljstyle"},
 
 		},
 		format_on_save = {

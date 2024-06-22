@@ -37,27 +37,18 @@ return {
     },
 
     keys = {
-        { "<leader>ff",  builtin.find_files,                                          {} },
-        { "<leader>lg",  builtin.live_grep,                                           {} },
-        { "<leader>fb",  builtin.buffers,                                             {} },
-        { "<leader>fh",  builtin.help_tags,                                           {} },
-        { "<leader>gff", builtin.git_files,                                           {} },
-        { "<leader>fg",  builtin.grep_string,                                         {} },
-        { "<leader>fr",  builtin.old_files,                                           {} },
-        { "<leader>ft",  ":Telescope file_browser path=%:p:h select_buffer=true<CR>", {} },
-        { "<leader>ftb", ":Telescope file_browser<CR>",                               {} },
-        -- $env:Path += ";$(Get-Location)"
-        {
-            "<leader>fs",
-            function()
-                builtin.grep_string({ search = vim.fn.input("Grep > ") })
-            end,
-        },
+        { "<leader>fr",  builtin.oldfiles,    desc = "Old files",   {} },
+        { "<leader>ff",  builtin.find_files,  desc = "Find files",  {} },
+        { "<leader>lg",  builtin.live_grep,   desc = "Live grep",   {} },
+        { "<leader>fb",  builtin.buffers,     desc = "Buffers",     {} },
+        { "<leader>fh",  builtin.help_tags,   desc = "Help tags",   {} },
+        { "<leader>gff", builtin.git_files,   desc = "Git files",   {} },
+        { "<leader>fg",  builtin.grep_string, desc = "Grep string", {} },
     },
 
     config = function()
         -- require("telescope").load_extension("fzf")
-        require("telescope").load_extension("file_browser")
+        -- require("telescope").load_extension("file_browser")
         -- require("tokyonight").setup({
         --     on_highlights = function(hl, c)
         --         local prompt = "#2d3149"

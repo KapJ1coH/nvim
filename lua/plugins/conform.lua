@@ -19,6 +19,10 @@ return {
 			-- Use a sub-list to run only the first available formatter
 			xml = { "xmlformat" },
 			json = { "jq" },
+            javascript = { "prettier" },
+            html = { "prettier" },
+            css = { "prettier" },
+
 		},
 		format_on_save = {
 			timeout_ms = 100,

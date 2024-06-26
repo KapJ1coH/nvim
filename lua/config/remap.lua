@@ -20,7 +20,11 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
+-- Smart replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Visual range G command
+vim.keymap.set("v", "<leader>g", [[:g/^/normal ]])
 
 -- Search case unsensetive
 vim.keymap.set("n", "/", "/\\c")
@@ -45,16 +49,15 @@ elseif username == "ty096829" then
 		[[:!python mmu_test_sw_lib\mmu_test_sw_lib\Utilities\reg_lookup\reg_lookup.py <C-r><C-w><cr>]]
 	)
 end
-local a = "0x8090300C"
 
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
--- replacing stuff
-vim.fn.setreg("t", "/send_tele\rV/decode_can_message\r/)\rdk pt")
-vim.fn.setreg("l", "/send_long_tele\rV/decode_long_telemetry_response\r/)\rdk pl")
-vim.fn.setreg("s", "Vy/step = \rnVpf.^")
+-- NOTE example on how to set reg values
+-- vim.fn.setreg("t", "/send_tele\rV/decode_can_message\r/)\rdk pt")
+-- vim.fn.setreg("l", "/send_long_tele\rV/decode_long_telemetry_response\r/)\rdk pl")
+-- vim.fn.setreg("s", "Vy/step = \rnVpf.^")
 
 -- potential map for replacing stuff
 --

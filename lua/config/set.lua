@@ -82,3 +82,17 @@ vim.diagnostic.config({
 })
 
 vim.keymap.set("n", "<leader>i", vim.diagnostic.open_float)
+
+-- neovide stuff
+-- vim.g.neovide_transparency = 0.8
+-- vim.g.transparency = true
+
+-- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
+vim.g.neovide_transparency = 0.8
+vim.g.transparency = 0.8
+
+-- vim.g.neovide_fullscreen = true
+-- paste system clipboard
+vim.keymap.set("n", "<C-v>", '"+p')
+vim.keymap.set("i", "<C-v>", '"+p')
+vim.keymap.set("v", "<C-v>", '"+p')

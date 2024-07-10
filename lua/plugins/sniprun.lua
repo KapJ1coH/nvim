@@ -1,7 +1,6 @@
 local flag = true
 if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
     flag = false
-
 end
 return {
     "michaelb/sniprun",
@@ -19,7 +18,13 @@ return {
             interpreter_options = {
                 C_original = {
                     compiler = "gcc"
+                },
+                Cpp_original = {
+                    compiler = "g++"
                 }
+            },
+            display = {
+                "VirtualText",
             },
         })
     end,

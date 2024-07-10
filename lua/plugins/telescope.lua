@@ -37,13 +37,14 @@ return {
     },
 
     keys = {
-        { "<leader>fr",  builtin.oldfiles,    desc = "Old files",   {} },
-        { "<leader>ff",  builtin.find_files,  desc = "Find files",  {} },
-        { "<leader>lg",  builtin.live_grep,   desc = "Live grep",   {} },
-        { "<leader>fb",  builtin.buffers,     desc = "Buffers",     {} },
-        { "<leader>fh",  builtin.help_tags,   desc = "Help tags",   {} },
-        { "<leader>gff", builtin.git_files,   desc = "Git files",   {} },
-        { "<leader>fg",  builtin.grep_string, desc = "Grep string", {} },
+        { "<leader>fr",  builtin.oldfiles,    desc = "Old files",     {} },
+        { "<leader>ff",  builtin.find_files,  desc = "Find files",    {} },
+        { "<leader>lg",  builtin.live_grep,   desc = "Live grep",     {} },
+        { "<leader>fb",  builtin.buffers,     desc = "Buffers",       {} },
+        { "<leader>fh",  builtin.help_tags,   desc = "Help tags",     {} },
+        { "<leader>gff", builtin.git_files,   desc = "Git files",     {} },
+        { "<leader>fg",  builtin.grep_string, desc = "Grep string",   {} },
+        { "<leader>fc",  builtin.resume,      desc = "Recent search", {} },
     },
 
     config = function()

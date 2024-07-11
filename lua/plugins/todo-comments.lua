@@ -1,7 +1,24 @@
+vim.keymap.set("n", "]t", function()
+	require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+	require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
 return {
 	"folke/todo-comments.nvim",
 	lazy = true,
 	event = { "BufReadPre", "BufNewFile" },
+	-- keys = {
+	-- 	{ "<leader>dc", "<Cmd>TodoTelescope<CR>", desc = "search TODOs across all files" },
+	-- 	{
+	-- 		"<leader>da",
+	-- 		"<Cmd>exe ':TodoQuickFix cwd=' .. fnameescape(expand('%:p'))<CR>",
+	-- 		desc = "search TODOs in current file",
+	-- 	},
+	-- },
+
 	opts = {
 		signs = true, -- show icons in the signs column
 		sign_priority = 8, -- sign priority

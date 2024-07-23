@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 return {
 	"AckslD/swenv.nvim",
+	enabled = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"ahmedkhalf/project.nvim",

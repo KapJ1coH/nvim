@@ -59,33 +59,55 @@ return {
 				-- to learn the available actions
 				local opts = { buffer = bufnr, remap = false }
 
-				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+				vim.keymap.set(
+					"n",
+					"gD",
+					vim.lsp.buf.declaration,
+					{ desc = "Declaration", buffer = bufnr, remap = false }
+				)
+				vim.keymap.set(
+					"n",
+					"gd",
+					vim.lsp.buf.definition,
+					{ desc = "Definition", buffer = bufnr, remap = false }
+				)
+				vim.keymap.set(
+					"n",
+					"gi",
+					vim.lsp.buf.implementation,
+					{ desc = "Implementation", buffer = bufnr, remap = false }
+				)
 				vim.keymap.set("n", "<leader>lws", function()
 					vim.lsp.buf.workspace_symbol()
-				end, opts)
+				end, { desc = "Workspace Symbol", buffer = bufnr, remap = false })
+
 				vim.keymap.set("n", "<leader>vd", function()
 					vim.diagnostic.open_float()
-				end, opts)
+				end, { desc = "Open Float", buffer = bufnr, remap = false })
+
 				vim.keymap.set("n", "[d", function()
 					vim.diagnostic.goto_next()
-				end, opts)
+				end, { desc = "Goto next", buffer = bufnr, remap = false })
+
 				vim.keymap.set("n", "]d", function()
 					vim.diagnostic.goto_prev()
-				end, opts)
+				end, { desc = "Goto prev", buffer = bufnr, remap = false })
+
 				vim.keymap.set("n", "<leader>lca", function()
 					vim.lsp.buf.code_action()
-				end, opts)
+				end, { desc = "Code Action", buffer = bufnr, remap = false })
+
 				vim.keymap.set("n", "<leader>lrr", function()
 					vim.lsp.buf.references()
-				end, opts)
+				end, { desc = "References", buffer = bufnr, remap = false })
+
 				vim.keymap.set("n", "<leader>lrn", function()
 					vim.lsp.buf.rename()
-				end, opts)
+				end, { desc = "Rename Variable", buffer = bufnr, remap = false })
+
 				vim.keymap.set("i", "<C-h>", function()
 					vim.lsp.buf.signature_help()
-				end, opts)
+				end, { desc = "Signature Help", buffer = bufnr, remap = false })
 				-- vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, opts)
 			end)
 

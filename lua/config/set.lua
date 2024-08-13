@@ -26,10 +26,12 @@ vim.opt.smartindent = true
 -- Windows vs Linux
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
 	vim.opt.shell = "pwsh"
-	vim.opt.shellcmdflag = "-Command"
-	vim.opt.shellquote = '"'
+	vim.opt.shellcmdflag =
+		"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+	vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+	vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.opt.shellquote = ""
 	vim.opt.shellxquote = ""
-	vim.opt.undodir = os.getenv("USERPROFILE") .. "/AppData/Local/nvim/undodir"
 elseif vim.fn.has("unix") == 1 then
 	vim.opt.shell = "fish"
 end

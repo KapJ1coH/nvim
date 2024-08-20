@@ -18,29 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- local settings = {
--- 	defaults = {
--- 		lazy = true,
--- 	},
--- 	performance = {
--- 		rtp = {
--- 			-- disable some rtp plugins
--- 			disabled_plugins = {
--- 				"gzip",
--- 				-- "matchit",
--- 				-- "matchparen",
--- 				-- "netrwPlugin",
--- 				"tarPlugin",
--- 				"tohtml",
--- 				"tutor",
--- 				"zipPlugin",
--- 			},
--- 		},
--- 	},
--- }
--- require("lazy").setup("plugins", settings)
--- TODO Remove this comment block if stuff below works
-
 require("lazy").setup({
 	spec = {
 		-- import your plugins
@@ -57,5 +34,5 @@ require("lazy").setup({
 	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "habamax" } },
 	-- automatically check for plugin updates
-	checker = { enabled = true },
+	checker = { enabled = true, notify = false, frequency = 86400 },
 })

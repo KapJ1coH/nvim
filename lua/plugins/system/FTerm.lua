@@ -35,7 +35,7 @@ return {
 			end,
 		},
 		{
-			"C-t",
+			"<C-t>",
 			mode = "t",
 			function()
 				require("FTerm").toggle()

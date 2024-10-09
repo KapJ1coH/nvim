@@ -9,6 +9,9 @@ vim.opt.termguicolors = true
 --
 vim.opt.guicursor = "n:block,i:ver25"
 
+-- Highlight current line number
+vim.opt.cursorline = true
+
 -- autoindent and such
 -- Enable file type detection and plugin
 vim.cmd("filetype plugin indent on")

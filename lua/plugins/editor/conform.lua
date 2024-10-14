@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("bufWritePost", {
 return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
+	enabled = false,
 	cmd = { "ConformInfo" },
 	keys = {
 		{

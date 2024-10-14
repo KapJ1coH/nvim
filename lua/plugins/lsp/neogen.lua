@@ -16,7 +16,6 @@ return {
 	},
 
 	keys = {
-		{ "<leader>o", "<cmd>OverseerOpen<cr>" },
 		{
 			"<leader>nc",
 			"<cmd>Neogen class<cr>",

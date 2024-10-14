@@ -9,9 +9,17 @@ if username == 'ty096829' then
         lazy = false,
         enabled = false,
     }
-    end
+end
 
 return {
     "github/copilot.vim",
     lazy = false,
+
+    keys = {
+        { "<leader>ce", "<cmd>Copilot enable<CR>" },
+        { "<leader>cd", "<cmd>Copilot disable<CR>" },
+        { "<leader>cp", "<cmd>Copilot panel<CR>" },
+
+    }
+
 }

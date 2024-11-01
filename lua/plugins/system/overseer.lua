@@ -13,10 +13,6 @@ return {
         print("Current path: " .. vim.fn.getcwd())
         require('overseer').setup({
 
-            templates = {
-                "builtin", "user.gcc_build.lua"
-
-            }
         })
     end,
     keys = {

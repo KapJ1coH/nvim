@@ -39,6 +39,9 @@ elseif vim.fn.has("unix") == 1 then
 	vim.opt.shell = "fish"
 end
 
+-- shellslash
+vim.opt.shellslash = true
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 

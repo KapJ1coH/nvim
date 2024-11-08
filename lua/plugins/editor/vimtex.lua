@@ -1,8 +1,8 @@
 return {
 	"lervag/vimtex",
-	ft = { "tex" },
+	-- ft = { "tex" },
 	lazy = false, -- we don't want to lazy load VimTeX
-    enabled = false,
+    -- enabled = false,
 	-- tag = "v2.15", -- uncomment to pin to a specific release
 	init = function()
 		-- vim.g.vimtex_callback_progpath = "C:\\tools\\neovim\\nvim-win64\\bin\\nvim.exe"

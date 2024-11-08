@@ -41,6 +41,10 @@ local opts = {
             fg = c.fg_dark,
         }
 
+        hl.DiagnosticUnnecessary = {
+            fg = "#ffcc00", -- A bright yellow; adjust as needed
+        }
+
 
         local prompt = "#000000"
         hl.TelescopeNormal = {

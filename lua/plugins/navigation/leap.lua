@@ -32,6 +32,7 @@ return {
 		dependencies = {
 			"tpope/vim-repeat",
 		},
+
 		opts = opts_leap,
 		event = "BufEnter",
 		config = function()

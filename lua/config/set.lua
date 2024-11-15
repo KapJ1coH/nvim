@@ -24,8 +24,6 @@ vim.o.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
 vim.o.expandtab = true -- Convert tabs to spaces
 vim.o.softtabstop = 4
 
-vim.opt.smartindent = true
-
 -- Windows vs Linux
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
 	vim.opt.shell = "pwsh"
@@ -40,7 +38,7 @@ elseif vim.fn.has("unix") == 1 then
 end
 
 -- shellslash
-vim.opt.shellslash = true
+-- vim.opt.shellslash = true
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

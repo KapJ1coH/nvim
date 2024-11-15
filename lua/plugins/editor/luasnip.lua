@@ -15,15 +15,16 @@ return {
         local s = ls.snippet
         local t = ls.text_node
         local i = ls.insert_node
+        local f = ls.function_node
         ls.config.set_config(opts)
         local keymap = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }
+        local fmt = require("luasnip.extras.fmt").fmt
+        local rep = require("luasnip.extras").rep
 
-        ls.add_snippets("latex", {
-            s("bjs", {
-                t("Hello, world!"),
-                i(1),
-            }),
+        -- This becomes print(f"variable = {variable}")
+        ls.add_snippets("python", {
+            s("pvar", fmt('print(f"{} = {{{}}}")', {i(1, "variable"), rep(1)}))
         })
 
 

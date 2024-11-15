@@ -6,6 +6,13 @@ return {
 	},
 	lazy = false,
 	-- init = function() vim.g.barbar_auto_setup = false end,
+    --
+
+    opts = {
+        animation = true,
+        maximum_length = 70,
+    },
+
 	keys = {
 		-- Move to previous/next
 		{ "<C-S-Left>", "<Cmd>BufferPrevious<CR>" },

@@ -3,3 +3,4 @@ undodir/
 plugin/
 test/lualine.nvim
 node_modules
+.repro

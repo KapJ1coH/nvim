@@ -5,7 +5,7 @@ local options
 -- Only runs this script if Alpha Screen loads -- only if there isn't files to read
 if (vim.api.nvim_exec('echo argc()', true) == "0")
 then
-    --math.randomseed( os.time() ) -- For random header.
+    math.randomseed( os.time() ) -- For random header.
 
     -- To split our quote, artist and source.
     -- And automatically center it for screen loader of the header.
@@ -104,96 +104,66 @@ then
             [[/jgs     \           \-.\ ]],
         }, -- jgs
 
+
         {
-         [[                                                                     ]],
-         [[       ███████████           █████      ██                     ]],
-         [[      ███████████             █████                             ]],
-         [[      ████████████████ ███████████ ███   ███████     ]],
-         [[     ████████████████ ████████████ █████ ██████████████   ]],
-         [[    █████████████████████████████ █████ █████ ████ █████   ]],
-         [[  ██████████████████████████████████ █████ █████ ████ █████  ]],
-         [[ ██████  ███ █████████████████ ████ █████ █████ ████ ██████ ]],
-         [[ ██████   ██  ███████████████   ██ █████████████████ ]],
-         [[ ██████   ██  ███████████████   ██ █████████████████ ]],
+            [[=================     ===============     ===============   ========  ========]],
+            [[\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //]],
+            [[||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||]],
+            [[|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||]],
+            [[||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||]],
+            [[|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||]],
+            [[||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||]],
+            [[|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||]],
+            [[||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||]],
+            [[||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||]],
+            [[||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||]],
+            [[||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||]],
+            [[||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||]],
+            [[||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||]],
+            [[||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||]],
+            [[||.=='    _-'                                                     `' |  /==.||]],
+            [[=='    _-'                        N E O V I M                         \/   `==]],
+            [[\   _-'                                                                `-_   /]],
+            [[ `''                                                                      ``' ]],
         },
 
         {
-          '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',
-          '⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡖⠁⠀⠀⠀⠀⠀⠀⠈⢲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',
-          '⠀⠀⠀⠀⠀⠀⠀⠀⣼⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣧⠀⠀⠀⠀⠀⠀⠀⠀ ',
-          '⠀⠀⠀⠀⠀⠀⠀⣸⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣇⠀⠀⠀⠀⠀⠀⠀ ',
-          '⠀⠀⠀⠀⠀⠀⠀⣿⣿⡇⠀⢀⣀⣤⣤⣤⣤⣀⡀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀ ',
-          '⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣔⢿⡿⠟⠛⠛⠻⢿⡿⣢⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀ ',
-          '⠀⠀⠀⠀⣀⣤⣶⣾⣿⣿⣿⣷⣤⣀⡀⢀⣀⣤⣾⣿⣿⣿⣷⣶⣤⡀⠀⠀⠀⠀ ',
-          '⠀⠀⢠⣾⣿⡿⠿⠿⠿⣿⣿⣿⣿⡿⠏⠻⢿⣿⣿⣿⣿⠿⠿⠿⢿⣿⣷⡀⠀⠀ ',
-          '⠀⢠⡿⠋⠁⠀⠀⢸⣿⡇⠉⠻⣿⠇⠀⠀⠸⣿⡿⠋⢰⣿⡇⠀⠀⠈⠙⢿⡄⠀ ',
-          '⠀⡿⠁⠀⠀⠀⠀⠘⣿⣷⡀⠀⠰⣿⣶⣶⣿⡎⠀⢀⣾⣿⠇⠀⠀⠀⠀⠈⢿⠀ ',
-          '⠀⡇⠀⠀⠀⠀⠀⠀⠹⣿⣷⣄⠀⣿⣿⣿⣿⠀⣠⣾⣿⠏⠀⠀⠀⠀⠀⠀⢸⠀ ',
-          '⠀⠁⠀⠀⠀⠀⠀⠀⠀⠈⠻⢿⢇⣿⣿⣿⣿⡸⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠈⠀ ',
-          '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',
-          '⠀⠀⠀⠐⢤⣀⣀⢀⣀⣠⣴⣿⣿⠿⠋⠙⠿⣿⣿⣦⣄⣀⠀⠀⣀⡠⠂⠀⠀⠀ ',
-          '⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠉⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠋⠁⠀⠀⠀⠀⠀ ',
+            [[  ／|_       ]],
+            [[ (o o /      ]],
+            [[  |.   ~.    ]],
+            [[  じしf_,)ノ ]],
         },
 
         {
-          [[=================     ===============     ===============   ========  ========]],
-          [[\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //]],
-          [[||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||]],
-          [[|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||]],
-          [[||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||]],
-          [[|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||]],
-          [[||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||]],
-          [[|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||]],
-          [[||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||]],
-          [[||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||]],
-          [[||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||]],
-          [[||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||]],
-          [[||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||]],
-          [[||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||]],
-          [[||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||]],
-          [[||.=='    _-'                                                     `' |  /==.||]],
-          [[=='    _-'                        N E O V I M                         \/   `==]],
-          [[\   _-'                                                                `-_   /]],
-          [[ `''                                                                      ``' ]],
+            '          ▀████▀▄▄              ▄█ ',
+            '            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ',
+            '    ▄        █          ▀▀▀▀▄  ▄▀  ',
+            '   ▄▀ ▀▄      ▀▄              ▀▄▀  ',
+            '  ▄▀    █     █▀   ▄█▀▄      ▄█    ',
+            '  ▀▄     ▀▄  █     ▀██▀     ██▄█   ',
+            '   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ',
+            '    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ',
+            '   █   █  █      ▄▄           ▄▀   ',
         },
 
         {
-          [[  ／|_       ]],
-          [[ (o o /      ]],
-          [[  |.   ~.    ]],
-          [[  じしf_,)ノ ]],
+            "                                                     ",
+            "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+            "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+            "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+            "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+            "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+            "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+            "                                                     ",
         },
 
         {
-          '          ▀████▀▄▄              ▄█ ',
-          '            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ',
-          '    ▄        █          ▀▀▀▀▄  ▄▀  ',
-          '   ▄▀ ▀▄      ▀▄              ▀▄▀  ',
-          '  ▄▀    █     █▀   ▄█▀▄      ▄█    ',
-          '  ▀▄     ▀▄  █     ▀██▀     ██▄█   ',
-          '   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ',
-          '    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ',
-          '   █   █  █      ▄▄           ▄▀   ',
-        },
-
-        {
-          "                                                     ",
-          "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-          "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-          "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-          "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-          "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-          "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-          "                                                     ",
-        },
-
-        {
-          [[                               __                ]],
-          [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-          [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-          [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-          [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-          [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+            [[                               __                ]],
+            [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+            [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+            [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+            [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+            [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
         },
 
     }
@@ -205,7 +175,7 @@ then
     local header = {
         type = "text",
         val = Headers[math.random(#Headers)],
-        -- val = Headers[1],
+        -- val = Headers[3],
         opts = {
             position = "center",
             hl       = "Whitespace"
@@ -219,11 +189,12 @@ then
         -- https://github.com/BeyondMagic/scripts/blob/master/quotes/rdn
         -- Which returns one to three lines, being each divided by a line break.
         -- Or just an array: { "I see you:", "Above you." }
-        val  = {
-            "We accept the love we think we deserve.",
-            "                           Mr. Callahan",
-            "The Perks of Being a Wallflower",
-        }, -- split(capture('rdn')),
+        -- val  = {
+        --     "We accept the love we think we deserve.",
+        --     "                           Mr. Callahan",
+        --     "The Perks of Being a Wallflower",
+        -- }, 
+        val = split(capture('https://github.com/BeyondMagic/scripts/blob/master/quotes/rdn')),
         hl   = "NvimTreeRootFolder",
         opts = {
             position = "center",
@@ -239,8 +210,6 @@ then
             button("h", "  Recently opened files", 'RainbowBlue', ':Telescope oldfiles<CR>'),
             button("l", "  Projects", 'RainbowOrange', ':Telescope marks<CR>'),
             button("r", "  Frecency/MRU", 'RainbowCyan', ':Telescope oldfiles<CR>'),
-            button("g", "  Open Last Session", 'RainbowGreen', ':source ~/.config/nvim/session.vim<CR>'),
-            button("m", "  Word Finder", 'RainbowViolet', ':Telescope live_grep<CR>'),
         },
         opts = {
             spacing = 1,
@@ -251,16 +220,16 @@ then
     -- Centering handler of ALPHA
     --
 
-    local ol = {                            -- occupied lines
-        icon            = #header.val,      -- CONST: number of lines that your header will occupy
-        message         = #footer.val,      -- CONST: because of padding at the bottom
+    local ol = {                                -- occupied lines
+        icon            = #header.val,          -- CONST: number of lines that your header will occupy
+        message         = #footer.val,          -- CONST: because of padding at the bottom
         length_buttons  = #buttons.val * 2 - 1, -- CONST: it calculate the number that buttons will occupy
-        neovim_lines    = 2,                -- CONST: 2 of command line, 1 of the top bar
-        padding_between = 3,                -- STATIC: can be set to anything, padding between keybinds and header
+        neovim_lines    = 2,                    -- CONST: 2 of command line, 1 of the top bar
+        padding_between = 3,                    -- STATIC: can be set to anything, padding between keybinds and header
     }
 
     local left_terminal_value = vim.api.nvim_get_option('lines') -
-    (ol.length_buttons + ol.message + ol.padding_between + ol.icon + ol.neovim_lines)
+        (ol.length_buttons + ol.message + ol.padding_between + ol.icon + ol.neovim_lines)
 
     -- Not screen enough to run the command.
     if (left_terminal_value >= 0) then
@@ -271,7 +240,7 @@ then
         -- Set alpha sections
         --
 
-        options              = {
+        options = {
             layout = {
                 { type = "padding", val = top_padding },
                 header,
@@ -286,15 +255,13 @@ then
         }
     end
 
-    --else
-    --vim.api.nvim_exec('silent source ~/.config/nvim/session.vim', false)
 end
 
 return {
     "goolord/alpha-nvim",
-    dependencies = {'nvim-tree/nvim-web-devicons', },
+    dependencies = { 'nvim-tree/nvim-web-devicons', },
     lazy = false,
-    -- enabled = false,
+    enabled = false,
     config = function()
         if (options ~= nil) then
             require 'alpha'.setup(options)

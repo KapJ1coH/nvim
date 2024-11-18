@@ -46,7 +46,7 @@
   "overseer.nvim": { "branch": "master", "commit": "e734140137cdd25b4c31c0fb9bf22faa9c115dcc" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "refactoring.nvim": { "branch": "master", "commit": "53ed6854e0bba64d467c58e87084dcf8b1c22d36" },
-  "snacks.nvim": { "branch": "main", "commit": "16da49674f7b3759dbe32d4d84f9710ffb5989bd" },
+  "snacks.nvim": { "branch": "main", "commit": "2ae410889cbe6f59fb52f40cb86b25d6f7e874e2" },
   "sqls.nvim": { "branch": "main", "commit": "4b1274b5b44c48ce784aac23747192f5d9d26207" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "626998e5c1b71c130d8bc6cf7abb6709b98287bb" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },

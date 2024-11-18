@@ -1,3 +1,59 @@
+local header = [[
+=================     ===============     ===============   ========  ========
+\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
+||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
+|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
+||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
+|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
+||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
+|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
+||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
+||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
+||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
+||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
+||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
+||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
+||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
+||.=='    _-'                                                     `' |  /==.||
+=='    _-'                        N E O V I M                         \/   `==
+\   _-'                                                                `-_   /
+ `''                                                                      ``' 
+]]
+
+
+local dashboard = {
+    enabled = true,
+    -- preset = {
+    --     header = header
+    -- },
+    sections = {
+        { section = "header" },
+        {
+            pane = 2,
+            -- section = "terminal",
+            -- cmd = "colorscript -e square",
+            height = 80,
+        },
+        { section = "keys", gap = 1, padding = 1 },
+        { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+        { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+        {
+            pane = 2,
+            icon = " ",
+            title = "Git Status",
+            section = "terminal",
+            enabled = vim.fn.isdirectory(".git") == 1,
+            cmd = "hub status --short --branch --renames",
+            height = 5,
+            padding = 1,
+            ttl = 5 * 60,
+            indent = 3,
+        },
+        { section = "startup" },
+    },
+}
+
+
 return
 {
     "folke/snacks.nvim",
@@ -6,7 +62,8 @@ return
     ---@type snacks.Config
     opts = {
         bigfile = { enabled = true },
-        dashboard = { enabled = true },
+        dashboard = dashboard,
+
         notifier = {
             enabled = true,
             timeout = 3000,
@@ -75,7 +132,7 @@ return
                     :map("<leader>uc")
                 Snacks.toggle.treesitter():map("<leader>uT")
                 Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map(
-                "<leader>ub")
+                    "<leader>ub")
                 Snacks.toggle.inlay_hints():map("<leader>uh")
             end,
         })

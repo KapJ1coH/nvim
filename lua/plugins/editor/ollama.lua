@@ -27,7 +27,7 @@ return {
 
     ---@type Ollama.Config
     opts = {
-        model = "llama3.2",
+        model = "qwen2.5-coder",
         url = "http://127.0.0.1:11434",
         serve = {
             on_start = false,
@@ -38,12 +38,6 @@ return {
         },
         -- View the actual default prompts in ./lua/ollama/prompts.lua
         prompts = {
-            Sample_Prompt = {
-                prompt = "This is a sample prompt that receives $input and $sel(ection), among others.",
-                input_label = "> ",
-                model = "mistral",
-                action = "display",
-            },
             Generate_Docstring = {
                 prompt =
                     [[

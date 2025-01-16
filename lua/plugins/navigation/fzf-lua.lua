@@ -18,6 +18,7 @@ return {
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({ "fzf-native" })
     end,
+    enabled = false,
 
     opts = function(_, opts)
         local config = require("fzf-lua.config")

@@ -1,4 +1,4 @@
-keys = {
+local keys = {
     { "<leader>z",  function() Snacks.zen() end,                     desc = "Toggle Zen Mode" },
     { "<leader>Z",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom" },
     { "<leader>.",  function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer" },
@@ -34,6 +34,10 @@ keys = {
             })
         end,
     },
+    -- profiler --
+    { "<leader>ps", function() Snacks.profiler.scratch() end, desc = "Profiler Scratch Bufer" },
+
+
     -- picker --
     { "<leader>,",       function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
     { "<leader>/",       function() Snacks.picker.grep() end,                                    desc = "Grep" },
@@ -76,6 +80,7 @@ keys = {
     { "gI",              function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
     { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
+
 }
 
 
@@ -147,6 +152,7 @@ return
         dashboard = dashboard,
         indent = { enabled = true },
         input = { enabled = true },
+        profiler = {},
         gitbrowse = {
             enabled = true,
             -- your gitbrowse configuration comes here
@@ -221,6 +227,8 @@ return
                 Snacks.toggle.inlay_hints():map("<leader>uh")
                 Snacks.toggle.indent():map("<leader>ug")
                 Snacks.toggle.dim():map("<leader>uD")
+                Snacks.toggle.profiler():map("<leader>pp")
+                Snacks.toggle.profiler_highlights():map("<leader>ph")
             end,
         })
     end,

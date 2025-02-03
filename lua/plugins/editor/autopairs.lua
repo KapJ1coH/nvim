@@ -12,6 +12,12 @@ return {
 		local cond = require("nvim-autopairs.conds")
 		local brackets = { { "(", ")" }, { "[", "]" }, { "{", "}" }, { "<", ">" } }
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+        npairs.add_rules({
+            Rule("*", "*", "markdown")
+        })
+
+
 		-- npairs.add_rules({
 			-- Rule("<", ">"),
 

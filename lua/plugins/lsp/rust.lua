@@ -20,12 +20,13 @@
 return {
     'mrcjkb/rustaceanvim',
     lazy = false, -- This plugin is already lazy
+    ft = { "rust", "rs" },
     keys = {
         -- Rustaceanvim's keybindings are already set in the snippet above
-        { 'n', '<leader>ra', function ()
+        { '<leader>ra', function ()
             vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
         end},
-        { 'n', 'K', function ()
+        { 'K', function ()
             vim.cmd.RustLsp({ 'hover', 'actions' })
         end},
     },

@@ -37,6 +37,8 @@ elseif vim.fn.has("unix") == 1 then
 	vim.opt.shell = "fish"
 end
 
+vim.opt.textwidth = 100
+
 -- shellslash
 -- vim.opt.shellslash = true
 

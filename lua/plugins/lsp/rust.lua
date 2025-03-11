@@ -20,6 +20,7 @@
 return {
     'mrcjkb/rustaceanvim',
     lazy = false, -- This plugin is already lazy
+    ft = { "rust", "rs" },
     keys = {
         -- Rustaceanvim's keybindings are already set in the snippet above
         { '<leader>ra', function ()

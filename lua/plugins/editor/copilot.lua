@@ -23,6 +23,7 @@ return {
     {
         'zbirenbaum/copilot.lua',
         cmd = 'Copilot',
+        -- enabled = false,
         event = 'InsertEnter',
         opts = {
             suggestion = {
@@ -30,9 +31,9 @@ return {
                 -- Use alt to interact with Copilot.
                 keymap = {
                     -- Disable the built-in mapping, we'll configure it in nvim-cmp.
-                    accept = '<M-a>',
+                    accept = '<C-d>',
                     accept_word = '<M-w>',
-                    accept_line = '<M-l>',
+                    accept_line = '<C-l>',
                     next = '<M-n>',
                     prev = '<M-p>',
                     dismiss = '/',

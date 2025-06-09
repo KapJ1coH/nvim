@@ -152,6 +152,7 @@ return
         dashboard = dashboard,
         indent = { enabled = true },
         input = { enabled = true },
+        scope = { enabled = true },
         profiler = {},
         gitbrowse = {
             enabled = true,

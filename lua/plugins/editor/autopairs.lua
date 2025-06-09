@@ -5,13 +5,13 @@ return {
 		require("nvim-autopairs").setup({})
 
 		-- If you want insert `(` after select function or method item
-		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-		local cmp = require("cmp")
+		-- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+		-- local cmp = require("cmp")
 		local npairs = require("nvim-autopairs")
 		local Rule = require("nvim-autopairs.rule")
-		local cond = require("nvim-autopairs.conds")
-		local brackets = { { "(", ")" }, { "[", "]" }, { "{", "}" }, { "<", ">" } }
-		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+		-- local cond = require("nvim-autopairs.conds")
+		-- local brackets = { { "(", ")" }, { "[", "]" }, { "{", "}" }, { "<", ">" } }
+		-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
         npairs.add_rules({
             Rule("*", "*", "markdown")

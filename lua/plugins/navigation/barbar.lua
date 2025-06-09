@@ -11,6 +11,7 @@ return {
     opts = {
         animation = true,
         maximum_length = 70,
+        preset = 'default',
     },
 
 	keys = {

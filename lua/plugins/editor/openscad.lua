@@ -8,7 +8,8 @@ return {
 
 	dependencies = "L3MON4D3/LuaSnip",
 	lazy = false,
-	enabled = flag,
+	-- enabled = flag,
+    enabled = false,
 
 	config = function()
 		require("openscad")

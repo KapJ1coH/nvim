@@ -6,7 +6,6 @@ end
 if username == 'ty096829' then
     return {
         "lervag/vimtex",
-        lazy = false,
         enabled = false,
     }
 end
@@ -15,6 +14,7 @@ return {
 	"lervag/vimtex",
 	-- ft = { "tex" },
 	lazy = false, -- we don't want to lazy load VimTeX
+    enabled = false, -- set to false to disable VimTeX
     -- enabled = false,
 	-- tag = "v2.15", -- uncomment to pin to a specific release
 	init = function()

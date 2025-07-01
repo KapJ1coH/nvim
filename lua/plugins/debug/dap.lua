@@ -1,8 +1,5 @@
 return {
     "mfussenegger/nvim-dap-python",
-    condition = {
-        filetype = { "py" },
-    },
     keys = {
         -- **Test-Related Key Mappings**
         {
@@ -72,6 +69,10 @@ return {
         },
     },
     config = function()
-        require("dap-python").setup("python")
+        -- require("dap-python").setup("uv")
+        -- require("dap-python").setup("python")
+        require("dap-python").setup("C:/Users/ty096829/AppData/Local/Programs/Python/Python311/python.exe")
+
+        require("dap-python").test_runner = "pytest"
     end,
 }

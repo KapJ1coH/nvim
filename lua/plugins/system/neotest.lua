@@ -52,14 +52,6 @@ return {
     config = function()
         require("neotest").setup({
             adapters = {
-                require('neotest-dart') {
-                    command = 'flutter', -- Command being used to run tests. Defaults to `flutter`
-                    -- Change it to `fvm flutter` if using FVM
-                    -- change it to `dart` for Dart only tests
-                    use_lsp = true, -- When set Flutter outline information is used when constructing test name.
-                    -- Useful when using custom test names with @isTest annotation
-                    custom_test_method_names = {},
-                },
                 require("neotest-python")({
                     -- Extra arguments for nvim-dap configuration
                     -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
@@ -84,7 +76,7 @@ return {
                     --
                     -- !!EXPERIMENTAL!! Enable shelling out to `pytest` to discover test
                     -- instances for files containing a parametrize mark (default: false)
-                    -- pytest_discover_instances = true,
+                    pytest_discover_instances = true,
                 }),
                 -- require("neotest-plenary"),
                 -- require("neotest-vim-test")({

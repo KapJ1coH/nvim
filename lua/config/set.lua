@@ -12,6 +12,18 @@ vim.opt.guicursor = "n:block,i:ver25"
 -- Highlight current line number
 vim.opt.cursorline = true
 
+-- Python
+local username = vim.fn.expand('$USER')
+if username == '$USER' then
+    username = vim.fn.expand('$USERNAME')
+end
+
+if username == 'ty096829' then
+    vim.g.python3_host_prog = "C:/Users/ty096829/AppData/Local/Programs/Python/Python311/python.exe"
+else
+    vim.g.python3_host_prog = "C:/Users/timam/AppData/Local/Programs/Python/Python311/python.exe"
+end
+
 -- autoindent and such
 -- Enable file type detection and plugin
 vim.cmd("filetype plugin indent on")
@@ -37,7 +49,6 @@ elseif vim.fn.has("unix") == 1 then
 	vim.opt.shell = "fish"
 end
 
-vim.opt.textwidth = 100
 
 -- shellslash
 -- vim.opt.shellslash = true
@@ -96,10 +107,11 @@ vim.keymap.set("n", "<leader>i", vim.diagnostic.open_float)
 -- vim.g.transparency = true
 
 -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
-vim.g.neovide_transparency = 0.8
-vim.g.transparency = 0.8
+-- vim.g.neovide_transparency = 0.8
+-- vim.g.transparency = 0.8
 
 -- vim.g.neovide_fullscreen = true
+
 -- paste system clipboard
 vim.keymap.set("n", "<C-v>", '"+p')
 vim.keymap.set("i", "<C-v>", '"+p')

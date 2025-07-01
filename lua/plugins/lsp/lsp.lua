@@ -30,6 +30,7 @@ return {
             -- { "hrsh7th/cmp-nvim-lsp" },
             {
                 { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+                {"j-hui/fidget.nvim"}, 
                 -- 'nvim-java/nvim-java',
             },
         },

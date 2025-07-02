@@ -4,7 +4,10 @@ return {
         "mason-org/mason-lspconfig.nvim",
         opts = {
             ensure_installed = { "lua_ls", "rust_analyzer", "pyright" },
-            -- handlers = {
+            handlers = {
+                function(server_name) -- default handler (optional)
+                    require("lspconfig")[server_name].setup {}
+                end,
             --     jdtls = function()
             --         require('java').setup {
             --             -- Your custom jdtls settings goes here
@@ -14,7 +17,7 @@ return {
             --             -- Your custom nvim-java configuration goes here
             --         }
             --     end,
-            -- },
+            },
         },
         dependencies = {
             { "mason-org/mason.nvim", version = "^1.0.0", opts = {} },
@@ -30,7 +33,7 @@ return {
             -- { "hrsh7th/cmp-nvim-lsp" },
             {
                 { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
-                {"j-hui/fidget.nvim"}, 
+                {"j-hui/fidget.nvim"},
                 -- 'nvim-java/nvim-java',
             },
         },

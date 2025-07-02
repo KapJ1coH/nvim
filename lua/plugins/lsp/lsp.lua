@@ -8,15 +8,15 @@ return {
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {}
                 end,
-            --     jdtls = function()
-            --         require('java').setup {
-            --             -- Your custom jdtls settings goes here
-            --         }
+                --     jdtls = function()
+                --         require('java').setup {
+                --             -- Your custom jdtls settings goes here
+                --         }
 
-            --         require('lspconfig').jdtls.setup {
-            --             -- Your custom nvim-java configuration goes here
-            --         }
-            --     end,
+                --         require('lspconfig').jdtls.setup {
+                --             -- Your custom nvim-java configuration goes here
+                --         }
+                --     end,
             },
         },
         dependencies = {
@@ -33,7 +33,7 @@ return {
             -- { "hrsh7th/cmp-nvim-lsp" },
             {
                 { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
-                {"j-hui/fidget.nvim"},
+                { "j-hui/fidget.nvim" },
                 -- 'nvim-java/nvim-java',
             },
         },

@@ -62,9 +62,25 @@ return {
         config = function()
             local dap = require("dap")
             local virtual_text = require("nvim-dap-virtual-text")
-            virtual_text.setup()
+            virtual_text.setup({
+                commented = true,
+                highlight_changed_variables = true,
+                virt_text_pos = 'eol',
+            })
 
             dap.set_log_level("DEBUG")
+
+            vim.fn.sign_define('DapBreakpoint', { text = '⛔', texthl = '', linehl = '', numhl = '' })
+            vim.fn.sign_define('DapBreakpointCondition', { text = '⚙️', texthl = '', linehl = '', numhl = '' })
+            vim.fn.sign_define('DapLogPoint', { text = 'L', texthl = 'blue', linehl = '', numhl = '' })
+            vim.fn.sign_define('DapStopped', { text = '🚀', texthl = 'red', linehl = '', numhl = '' })
+
+            -- - `DapBreakpoint` for breakpoints (default: `B`)
+            -- - `DapBreakpointCondition` for conditional breakpoints (default: `C`)
+            -- - `DapLogPoint` for log points (default: `L`)
+            -- - `DapStopped` to indicate where the debugee is stopped (default: `→`)
+            -- - `DapBreakpointRejected` to indicate breakpoints rejected by the debug
+            --   adapter (default: `R`)
         end,
         keys = {
             { "<leader>da", function() require("dap").continue({ before = get_args }) end,                        desc = "Run with Args" },
@@ -105,23 +121,24 @@ return {
         config = function()
             local dap = require("dap")
             local dapui = require("dapui")
-            local function layout(name)
+
+            local function layout(name, pos)
                 return {
                     elements = {
                         { id = name },
                     },
                     enter = true,
                     size = 40,
-                    position = "right",
+                    position = pos,
                 }
             end
             local name_to_layout = {
-                repl = { layout = layout("repl"), index = 0 },
-                stacks = { layout = layout("stacks"), index = 0 },
-                scopes = { layout = layout("scopes"), index = 0 },
-                console = { layout = layout("console"), index = 0 },
-                watches = { layout = layout("watches"), index = 0 },
-                breakpoints = { layout = layout("breakpoints"), index = 0 },
+                repl = { layout = layout("repl", "right"), index = 0 },
+                stacks = { layout = layout("stacks", "right"), index = 0 },
+                scopes = { layout = layout("scopes", "bottom"), index = 0 },
+                console = { layout = layout("console", "right"), index = 0 },
+                watches = { layout = layout("watches", "right"), index = 0 },
+                breakpoints = { layout = layout("breakpoints", "bottom"), index = 0 },
             }
             local layouts = {}
 

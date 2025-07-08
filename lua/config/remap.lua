@@ -7,8 +7,8 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.keymap.set("v", "T", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "D", ":m '<-2<CR>gv=gv")
+-- vim.keymap.set("v", "T", ":m '>+1<CR>gv=gv")
+-- vim.keymap.set("v", "D", ":m '<-2<CR>gv=gv")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -65,8 +65,8 @@ end)
 -- "/step =\r/\.\d\+\rwcw[€kb{step_minor}Ostep_minor += 1/step =\r"
 
 -- paste useful stuff
-vim.keymap.set({ "n", "v" }, "<leader>pl", [[oparam_dict, _ = cf.get_long_telemetry()<ESC>]])
-vim.keymap.set({ "n", "v" }, "<leader>pt", [[oparam_dict, _ = cf.get_telemetry()<ESC>]])
+-- vim.keymap.set({ "n", "v" }, "<leader>pl", [[oparam_dict, _ = cf.get_long_telemetry()<ESC>]])
+-- vim.keymap.set({ "n", "v" }, "<leader>pt", [[oparam_dict, _ = cf.get_telemetry()<ESC>]])
 
 -- deleting stuff
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])

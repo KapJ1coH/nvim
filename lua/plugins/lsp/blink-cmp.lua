@@ -29,6 +29,8 @@ return {
             preset = 'default',
 
             ["<Enter>"] = { 'select_and_accept', "fallback" },
+            ["<C-K>"] = {"snippet_forward", "fallback"},
+            ["<C-J>"] = {"snippet_backward", "fallback"},
         },
 
         snippets = { preset = 'luasnip' },

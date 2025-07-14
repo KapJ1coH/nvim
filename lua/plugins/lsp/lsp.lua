@@ -38,6 +38,37 @@ return {
             },
         },
         config = function()
+            require('java').setup({
+                root_markers = {
+                    "settings.gradle",
+                    "settings.gradle.kts",
+                    "pom.xml",
+                    "build.gradle",
+                    "gradlew.bat",
+                    "build.gradle",
+                    "build.gradle.kts",
+                },
+                jdk = {
+                    auto_install = true,
+                },
+            })
+
+            require('lspconfig').jdtls.setup({
+                settings = {
+                    java = {
+                        configuration = {
+                            runtimes = {
+                                {
+                                    name = "corretto-21",
+                                    path = "C:\\Users\\timam\\scoop\\apps\\corretto21-jdk\\current\\bin\\java.exe",
+                                    default = true,
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+
             vim.keymap.set(
                 "n",
                 "gD",

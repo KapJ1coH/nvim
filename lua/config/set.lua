@@ -2,6 +2,18 @@
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 
+-- Monkey patch jobstart to log the commands
+local orig = vim.fn.jobstart
+vim.fn.jobstart = function(cmd, opts)
+  local log_path = "C:\\temp\\java-runner-log.txt"
+  local log_line = "jobstart: " .. vim.inspect(cmd) .. "\n"
+  local f = io.open(log_path, "a")
+  if f then f:write(log_line) f:close() end
+  return orig(cmd, opts)
+end
+
+
+
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 

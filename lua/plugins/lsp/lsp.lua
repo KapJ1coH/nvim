@@ -49,7 +49,7 @@ return {
                     "build.gradle.kts",
                 },
                 jdk = {
-                    auto_install = true,
+                    auto_install = false,
                 },
             })
 
@@ -104,6 +104,10 @@ return {
             end, { desc = "Goto prev", remap = false })
 
             vim.keymap.set("n", "<leader>lca", function()
+                vim.lsp.buf.code_action()
+            end, { desc = "Code Action", remap = false })
+
+            vim.keymap.set("n", "<leader><leader>", function()
                 vim.lsp.buf.code_action()
             end, { desc = "Code Action", remap = false })
 

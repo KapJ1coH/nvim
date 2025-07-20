@@ -50,9 +50,10 @@ elseif username == "ty096829" then
 	)
 end
 
-vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
-end)
+-- will be code actions now
+-- vim.keymap.set("n", "<leader><leader>", function()
+-- 	vim.cmd("so")
+-- end)
 
 -- NOTE example on how to set reg values
 -- vim.fn.setreg("t", "/send_tele\rV/decode_can_message\r/)\rdk pt")

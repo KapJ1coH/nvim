@@ -15,8 +15,11 @@ return {
 			end,
 		})
 
-		-- Set pylint to work in virtualenv
-		require("lint").linters.pylint.cmd = "python"
-		require("lint").linters.pylint.args = { "-m", "pylint", "-f", "json" }
+        local lint = require("lint")
+        lint.linters.pylint = require("lint.util").wrap(lint.linters.pylint, function(diagnostic)
+            diagnostic.severity = vim.diagnostic.severity.WARN
+            return diagnostic
+        end)
+
 	end,
 }

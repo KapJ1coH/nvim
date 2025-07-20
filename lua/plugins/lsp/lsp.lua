@@ -53,7 +53,9 @@ return {
                 },
             })
 
-            require('lspconfig').jdtls.setup({
+            local lspcfg = require('lspconfig')
+
+            lspcfg.jdtls.setup({
                 settings = {
                     java = {
                         configuration = {
@@ -65,6 +67,30 @@ return {
                                 }
                             }
                         }
+                    }
+                }
+            })
+
+            lspcfg.pyright.setup({
+                pyright = {
+                    settings = {
+                        pyright = {
+                            disableOrganizeImports = true, -- Using Ruff
+                        },
+                        python = {
+                            analysis = {
+                                ignore = { '*' }, -- Using Ruff
+                                -- typeCheckingMode = 'off', -- Using mypy
+                            },
+                        },
+                    },
+                }
+            })
+
+            lspcfg.ruff.setup({
+                init_options = {
+                    settings = {
+                        -- Ruff language server settings go here
                     }
                 }
             })

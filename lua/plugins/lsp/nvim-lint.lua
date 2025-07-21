@@ -1,12 +1,14 @@
 return {
 	"mfussenegger/nvim-lint",
+    keys = {
+        { "<leader>pl", function() require("lint").linters_by_ft = { python = { "pylint" }, } end,              desc = "Lint current buffer" },
+    },
 
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufEnter", "BufNewFile" },
+
 	config = function()
 		-- Set linters
-		require("lint").linters_by_ft = {
-			python = { "pylint" },
-		}
+		require("lint").linters_by_ft = { python = { "pylint" }, }
 
 		-- Set running linters on buffer save
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {

@@ -6,7 +6,9 @@ return {
             ensure_installed = { "lua_ls", "rust_analyzer", "pyright" },
             handlers = {
                 function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup {}
+                    if server_name ~= "rust_analyzer" then
+                        require("lspconfig")[server_name].setup {}
+                    end
                 end,
                 --     jdtls = function()
                 --         require('java').setup {

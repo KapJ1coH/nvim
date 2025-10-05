@@ -2,15 +2,15 @@
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 
--- Monkey patch jobstart to log the commands
-local orig = vim.fn.jobstart
-vim.fn.jobstart = function(cmd, opts)
-  local log_path = "C:\\temp\\java-runner-log.txt"
-  local log_line = "jobstart: " .. vim.inspect(cmd) .. "\n"
-  local f = io.open(log_path, "a")
-  if f then f:write(log_line) f:close() end
-  return orig(cmd, opts)
-end
+-- -- Monkey patch jobstart to log the commands
+-- local orig = vim.fn.jobstart
+-- vim.fn.jobstart = function(cmd, opts)
+--   local log_path = "C:\\temp\\java-runner-log.txt"
+--   local log_line = "jobstart: " .. vim.inspect(cmd) .. "\n"
+--   local f = io.open(log_path, "a")
+--   if f then f:write(log_line) f:close() end
+--   return orig(cmd, opts)
+-- end
 
 
 
@@ -30,11 +30,6 @@ if username == '$USER' then
     username = vim.fn.expand('$USERNAME')
 end
 
-if username == 'ty096829' then
-    vim.g.python3_host_prog = "C:/Users/ty096829/AppData/Local/Programs/Python/Python311/python.exe"
-else
-    vim.g.python3_host_prog = "C:/Users/timam/AppData/Local/Programs/Python/Python311/python.exe"
-end
 
 -- autoindent and such
 -- Enable file type detection and plugin
@@ -57,8 +52,13 @@ if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
 	vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
 	vim.opt.shellquote = ""
 	vim.opt.shellxquote = ""
+    if username == 'ty096829' then
+        vim.g.python3_host_prog = "C:/Users/ty096829/AppData/Local/Programs/Python/Python311/python.exe"
+    else
+        vim.g.python3_host_prog = "C:/Users/timam/AppData/Local/Programs/Python/Python311/python.exe"
+    end
 elseif vim.fn.has("unix") == 1 then
-	vim.opt.shell = "fish"
+	vim.opt.shell = "nu"
 end
 
 

@@ -2,7 +2,7 @@ return {
     "epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
-    enabled = false,
+    -- enabled = false,
     ft = "markdown",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     -- event = {
@@ -22,7 +22,8 @@ return {
         workspaces = {
             {
                 name = "uni",
-                path = "~/personal/university/uni",
+                -- /home/kapj1coh/Documents/My Vault/Areas/University/Fall 2025/comp-335/Daily notes
+                path = "~/Documents/My Vault/",
             },
         },
 

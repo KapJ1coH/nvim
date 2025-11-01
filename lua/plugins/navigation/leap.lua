@@ -36,7 +36,7 @@ return {
 		opts = opts_leap,
 		event = "BufEnter",
 		config = function()
-			require("leap").create_default_mappings()
+			require("leap").add_default_mappings(true)
 			-- Use the traversal keys to repeat the previous motion without explicitly
 			-- invoking Leap.
 			require("leap.user").set_repeat_keys("<enter>", "<backspace>")

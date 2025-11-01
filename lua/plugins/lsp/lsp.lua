@@ -105,7 +105,7 @@ return {
                     },
                 }
             })
-            
+
             -- lspcfg.pyright.setup({
             --     pyright = {
             --         settings = {

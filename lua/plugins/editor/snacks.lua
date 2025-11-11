@@ -37,6 +37,11 @@ local keys = {
     -- profiler --
     { "<leader>ps",      function() Snacks.profiler.scratch() end,                               desc = "Profiler Scratch Bufer" },
 
+    -- github --
+    { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issues (open)" },
+    { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
+    { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
+    { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
 
     -- picker --
     { "<leader><space>", function() Snacks.picker.smart() end,                                   desc = "Smart Find Files" },
@@ -163,6 +168,7 @@ return
         indent = { enabled = true },
         input = { enabled = true },
         scope = { enabled = true },
+        gh = {enabled = true},
         profiler = {},
         gitbrowse = {
             enabled = true,

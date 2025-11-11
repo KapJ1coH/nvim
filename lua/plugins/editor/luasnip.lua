@@ -24,7 +24,7 @@ return {
 
         -- This becomes print(f"variable = {variable}")
         ls.add_snippets("python", {
-            s("pvar", fmt('print(f"{} = {{{}}}")', {i(1, "variable"), rep(1)}))
+            s("pv", fmt('print(f"{{{}=}}")', {i(1, "variable")}))
         })
 
 

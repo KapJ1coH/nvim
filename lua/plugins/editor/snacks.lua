@@ -169,6 +169,7 @@ return
         input = { enabled = true },
         scope = { enabled = true },
         gh = {enabled = true},
+        git = {enabled = true},
         profiler = {},
         gitbrowse = {
             enabled = true,
@@ -199,6 +200,7 @@ return
             timeout = 3000,
         },
         quickfile = { enabled = true },
+        image = { enabled = true },
         picker = {},
         scroll = {
             enabled = true,

@@ -305,6 +305,11 @@ return {
 
             require("dap-python").test_runner = "pytest"
         end,
+    },
+    {
+        "julianolf/nvim-dap-lldb",
+        dependencies = { "mfussenegger/nvim-dap" },
+        opts = { },
     }
 
 

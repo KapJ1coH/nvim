@@ -1,14 +1,22 @@
-return {  
+return {
     {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
         event = "InsertEnter",
+        keys = {
+            { "<leader>cc", "<cmd>Copilot toggle<cr>", desc = "Toggle Copilot" },
+            { "<leader>cp", "<cmd>Copilot panel<cr>", desc = "Show Copilot Panel" },
+        },
         opts = {
             suggestion = { enabled = false },
             panel = { enabled = false },
             filetypes = {
                 markdown = true,
                 help = true,
+                html = true,
+                javascript = true,
+                typescript = true,
+                -- ["*"] = false,
             },
         },
     },

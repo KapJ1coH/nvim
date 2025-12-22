@@ -26,6 +26,23 @@ local opts_flit = {
 	opts = {},
 }
 
+local function add_default_mappings(force_3f)
+  for _, _22_ in ipairs({{{"n", "x", "o"}, "s", "<Plug>(leap-forward)", "Leap forward"}, {{"n", "x", "o"}, "S", "<Plug>(leap-backward)", "Leap backward"}, {{"x", "o"}, "x", "<Plug>(leap-forward-till)", "Leap forward till"}, {{"x", "o"}, "X", "<Plug>(leap-backward-till)", "Leap backward till"}, {{"n", "x", "o"}, "gs", "<Plug>(leap-from-window)", "Leap from window"}}) do
+    local modes = _22_[1]
+    local lhs = _22_[2]
+    local rhs = _22_[3]
+    local desc = _22_[4]
+    for _0, mode in ipairs(modes) do
+      if (force_3f or ((vim.fn.mapcheck(lhs, mode) == "") and (vim.fn.hasmapto(rhs, mode) == 0))) then
+        vim.keymap.set(mode, lhs, rhs, {silent = true, desc = desc})
+      else
+      end
+    end
+  end
+  return nil
+end
+
+
 return {
 	{
 		"ggandor/leap.nvim",
@@ -36,7 +53,7 @@ return {
 		opts = opts_leap,
 		event = "BufEnter",
 		config = function()
-			require("leap").add_default_mappings(true)
+			add_default_mappings(true)
 			-- Use the traversal keys to repeat the previous motion without explicitly
 			-- invoking Leap.
 			require("leap.user").set_repeat_keys("<enter>", "<backspace>")

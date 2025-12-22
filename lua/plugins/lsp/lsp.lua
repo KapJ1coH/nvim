@@ -3,7 +3,7 @@ return {
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { "lua_ls", "rust_analyzer", "pyright" },
+            ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "clangd", "taplo" },
             handlers = {
                 function(server_name) -- default handler (optional)
                     if server_name ~= "rust_analyzer" then
@@ -55,6 +55,7 @@ return {
                     auto_install = false,
                 },
             })
+
 
             -- local lspcfg = require('lspconfig')
 
@@ -127,6 +128,9 @@ return {
                 "jdtls",
                 "pyright",
                 "rust-analyzer",
+                "clangd",
+                "lua_ls",
+                "taplo",
 
             })
             -- lspcfg.ruff.setup({

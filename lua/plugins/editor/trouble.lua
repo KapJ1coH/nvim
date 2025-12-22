@@ -36,6 +36,20 @@ return {
             "<cmd>Trouble qflist toggle<cr>",
             desc = "Quickfix List (Trouble)",
         },
+        {
+            "<leader>xn",
+            function()
+                require("trouble").next()
+            end,
+            desc = "Next in the Trouble list"
+        },
+        {
+            "<leader>xp",
+            function()
+                require("trouble").prev()
+            end,
+            desc = "Prev in the Trouble list"
+        }
     },
     specs = {
         "folke/snacks.nvim",

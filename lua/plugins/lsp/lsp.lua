@@ -3,13 +3,15 @@ return {
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "clangd", "taplo" },
+            ensure_installed = { "lua_ls", "pyright", "clangd", "taplo" },
+            -- ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "clangd", "taplo" },
             handlers = {
                 function(server_name) -- default handler (optional)
-                    if server_name ~= "rust_analyzer" then
-                        -- require("lspconfig")[server_name].setup {} -- deprecated
-                        vim.lsp.config("*", {})
+                    if server_name == "rust_analyzer" then
+                        return
                     end
+                    -- require("lspconfig")[server_name].setup {} -- deprecated
+                    vim.lsp.config(server_name, {})
                 end,
                 --     jdtls = function()
                 --         require('java').setup {
@@ -129,6 +131,7 @@ return {
                 "pyright",
                 "rust-analyzer",
                 "clangd",
+                "rustowl",
                 "lua_ls",
                 "taplo",
 

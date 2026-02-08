@@ -38,10 +38,10 @@ local keys = {
     { "<leader>ps",      function() Snacks.profiler.scratch() end,                               desc = "Profiler Scratch Bufer" },
 
     -- github --
-    { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issues (open)" },
-    { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
-    { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
-    { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
+    { "<leader>gi",      function() Snacks.picker.gh_issue() end,                                desc = "GitHub Issues (open)" },
+    { "<leader>gI",      function() Snacks.picker.gh_issue({ state = "all" }) end,               desc = "GitHub Issues (all)" },
+    { "<leader>gp",      function() Snacks.picker.gh_pr() end,                                   desc = "GitHub Pull Requests (open)" },
+    { "<leader>gP",      function() Snacks.picker.gh_pr({ state = "all" }) end,                  desc = "GitHub Pull Requests (all)" },
 
     -- picker --
     { "<leader><space>", function() Snacks.picker.smart() end,                                   desc = "Smart Find Files" },
@@ -68,7 +68,7 @@ local keys = {
     { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
     { "<leader>sB",      function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
     { "<leader>sg",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
-    { "<leader>sw",      function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word", mode = { "n", "x" } },
+    { "<leader>sw",      function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word",   mode = { "n", "x" } },
     -- search
     { '<leader>s"',      function() Snacks.picker.registers() end,                               desc = "Registers" },
     { '<leader>s/',      function() Snacks.picker.search_history() end,                          desc = "Search History" },
@@ -90,7 +90,7 @@ local keys = {
     { "<leader>qp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
     -- LSP
     { "gd",              function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
-    { "gr",              function() Snacks.picker.lsp_references() end,                          nowait = true,                     desc = "References" },
+    { "gr",              function() Snacks.picker.lsp_references() end,                          nowait = true,                       desc = "References" },
     { "gI",              function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
     { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
@@ -168,8 +168,8 @@ return
         indent = { enabled = true },
         input = { enabled = true },
         scope = { enabled = true },
-        gh = {enabled = true},
-        git = {enabled = true},
+        gh = { enabled = true },
+        git = { enabled = true },
         profiler = {},
         gitbrowse = {
             enabled = true,
@@ -199,6 +199,7 @@ return
             enabled = true,
             timeout = 3000,
         },
+
         quickfile = { enabled = true },
         image = { enabled = true },
         picker = {},
@@ -210,13 +211,30 @@ return
 
             -- },
         },
-        statuscolumn = { enabled = true },
+        statuscolumn = {
+            enabled = true,
+            left = { "mark", "sign",  },       -- priority of signs on the left (high to low)
+            right = { "git", "fold" },       -- priority of signs on the right (high to low)
+            folds = {
+                open = false,                -- show open fold icons
+                git_hl = true,              -- use Git Signs hl for fold icons
+            },
+            git = {
+                -- patterns to match Git signs
+                patterns = { "GitSign", "MiniDiffSign" },
+            },
+            refresh = 50, -- refresh at most every 50ms
+
+
+        },
         words = { enabled = true },
+        keymaps = { enabled = true },
         styles = {
             notification = {
                 wo = { wrap = true } -- Wrap notifications
             }
         }
+
     },
     keys = keys,
     init = function()

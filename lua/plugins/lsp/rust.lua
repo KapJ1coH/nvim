@@ -22,27 +22,48 @@ return {
     lazy = false, -- This plugin is already lazy
     ft = { "rust", "rs" },
     -- config = function()
-    --     local root = vim.fs.root(0, { "rust-project.json" })
-    --     local is_kernel = root ~= nil
-    --     -- Absolute path to your toolchain source
-    --     local sysroot = "/home/kapj1coh/.rustup/toolchains/stable-x86_64-unknown-linux-gnu"
-    --     local sysroot_src = sysroot .. "/lib/rustlib/src/rust/library"
+    --     -- 1. Project Detection
+    --     local root_json = vim.fs.root(0, { "rust-project.json" })
+    --     local root_toml = vim.fs.root(0, { "rust-toolchain.toml" })
+
+    --     local is_kernel = root_json ~= nil
+    --     local is_esp = false
+
+    --     -- Check if rust-toolchain.toml contains channel = "esp"
+    --     if root_toml then
+    --         local file = io.open(root_toml .. "/rust-toolchain.toml", "r")
+    --         if file then
+    --             local content = file:read("*a")
+    --             if content:find('channel = "esp"') then
+    --                 is_esp = true
+    --             end
+    --             file:close()
+    --         end
+    --     end
+
+    --     -- 2. Paths
+    --     local stable_toolchain = "/home/kapj1coh/.rustup/toolchains/stable-x86_64-unknown-linux-gnu"
+    --     local ra_binary = stable_toolchain .. "/bin/rust-analyzer"
+    --     local sysroot_src = stable_toolchain .. "/lib/rustlib/src/rust/library"
 
     --     vim.g.rustaceanvim = {
     --         server = {
-    --             -- Force the use of the Mason binary
+    --             -- Always use the STABLE binary, even for ESP or Kernel projects
     --             cmd = function()
-    --                 return { "/home/kapj1coh/.local/share/nvim/mason/bin/rust-analyzer" }
+    --                 return { ra_binary }
     --             end,
     --             default_settings = {
     --                 ['rust-analyzer'] = {
-    --                     -- Required for kernel resolution
-    --                     linkedProjects = is_kernel and { root .. "/rust-project.json" } or nil,
+    --                     -- Kernel Specifics
+    --                     linkedProjects = is_kernel and { root_json .. "/rust-project.json" } or nil,
     --                     sysrootSrc = is_kernel and sysroot_src or nil,
-    --                     -- Disable Cargo checks that fail in the kernel tree
-    --                     checkOnSave = not is_kernel,
+    --                     checkOnSave = not is_kernel, -- Keep checkOnSave TRUE for ESP (it uses cargo)
+
+    --                     -- ESP Specifics: Force it to use the proper cargo wrapper if needed
+    --                     -- Usually defaults are fine, but ensure check command is correct
     --                     cargo = {
     --                         loadOutDirsFromCheck = not is_kernel,
+    --                         allFeatures = is_esp, -- Often helpful for embedded
     --                     },
     --                     procMacro = { enable = true },
     --                 },

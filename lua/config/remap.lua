@@ -7,6 +7,19 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- window/buffer navigation
+-- window (split) navigation using Shift + Arrows
+vim.keymap.set("n", "<S-Up>",    "<C-w>k", { desc = "Go to above split" })
+vim.keymap.set("n", "<S-Down>",  "<C-w>j", { desc = "Go to below split" })
+vim.keymap.set("n", "<S-Left>",  "<C-w>h", { desc = "Go to left split"  })
+vim.keymap.set("n", "<S-Right>", "<C-w>l", { desc = "Go to right split" })
+
+
+-- window/buffer navigation
+
+
+
+
 -- vim.keymap.set("v", "T", ":m '>+1<CR>gv=gv")
 -- vim.keymap.set("v", "D", ":m '<-2<CR>gv=gv")
 

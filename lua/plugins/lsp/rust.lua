@@ -1,84 +1,106 @@
--- local bufnr = vim.api.nvim_get_current_buf()
--- vim.keymap.set(
---     "n",
---     "<leader>a",
---     function()
---         vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
---         -- or vim.lsp.buf.codeAction() if you don't want grouping.
---     end,
---     { silent = true, buffer = bufnr }
--- )
--- vim.keymap.set(
---     "n",
---     "K", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
---     function()
---         vim.cmd.RustLsp({ 'hover', 'actions' })
---     end,
---     { silent = true, buffer = bufnr }
--- )
+-- vim.g.rustaceanvim.tools.code_actions.ui_select_fallback = true
+
 
 return {
-    'mrcjkb/rustaceanvim',
-    lazy = false, -- This plugin is already lazy
-    ft = { "rust", "rs" },
-    -- config = function()
-    --     -- 1. Project Detection
-    --     local root_json = vim.fs.root(0, { "rust-project.json" })
-    --     local root_toml = vim.fs.root(0, { "rust-toolchain.toml" })
+    {
+        'mrcjkb/rustaceanvim',
+        lazy = false, -- This plugin is already lazy
+        ft = { "rust", "rs" },
 
-    --     local is_kernel = root_json ~= nil
-    --     local is_esp = false
+        init = function()
+            -- runnables / outputs use toggleterm splits instead of default
+            vim.g.rustaceanvim = {
+                dap = {
+                    load_rust_types = true,
+                },
+                tools = {
+                    --         "termopen"|"quickfix"|"toggleterm"|"vimux"
 
-    --     -- Check if rust-toolchain.toml contains channel = "esp"
-    --     if root_toml then
-    --         local file = io.open(root_toml .. "/rust-toolchain.toml", "r")
-    --         if file then
-    --             local content = file:read("*a")
-    --             if content:find('channel = "esp"') then
-    --                 is_esp = true
-    --             end
-    --             file:close()
-    --         end
-    --     end
+                    executor     = "quickfix",
+                    code_actions = {
+                        ui_select_fallback = true, -- use vim.ui.select for code actions if rust-tools UI is not available
+                    },
+                },
+            }
+        end,
 
-    --     -- 2. Paths
-    --     local stable_toolchain = "/home/kapj1coh/.rustup/toolchains/stable-x86_64-unknown-linux-gnu"
-    --     local ra_binary = stable_toolchain .. "/bin/rust-analyzer"
-    --     local sysroot_src = stable_toolchain .. "/lib/rustlib/src/rust/library"
+        -- config = function ()
+        --     vim.g.rustaceanvim.tools.code_actions.ui_select_fallback = true
+        -- end,
+        keys = {
+            -- Rustaceanvim LSP actions (rust-only)
+            { '<leader>ra', function()
+                vim.cmd.RustLsp('codeAction') -- grouped Rust code actions
+            end },
 
-    --     vim.g.rustaceanvim = {
-    --         server = {
-    --             -- Always use the STABLE binary, even for ESP or Kernel projects
-    --             cmd = function()
-    --                 return { ra_binary }
-    --             end,
-    --             default_settings = {
-    --                 ['rust-analyzer'] = {
-    --                     -- Kernel Specifics
-    --                     linkedProjects = is_kernel and { root_json .. "/rust-project.json" } or nil,
-    --                     sysrootSrc = is_kernel and sysroot_src or nil,
-    --                     checkOnSave = not is_kernel, -- Keep checkOnSave TRUE for ESP (it uses cargo)
+            { '<leader>h', function()
+                vim.cmd.RustLsp({ 'hover', 'actions' })
+            end },
 
-    --                     -- ESP Specifics: Force it to use the proper cargo wrapper if needed
-    --                     -- Usually defaults are fine, but ensure check command is correct
-    --                     cargo = {
-    --                         loadOutDirsFromCheck = not is_kernel,
-    --                         allFeatures = is_esp, -- Often helpful for embedded
-    --                     },
-    --                     procMacro = { enable = true },
-    --                 },
-    --             },
-    --         },
-    --     }
-    -- end,
-    keys = {
-        -- Rustaceanvim's keybindings are already set in the snippet above
-        { '<leader>ra', function()
-            vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
-        end },
-        { '<leader>h', function()
-            vim.cmd.RustLsp({ 'hover', 'actions' })
-        end },
+            {
+                '<leader>rr',
+                function()
+                    vim.cmd.RustLsp('runnables')
+                end,
+                desc = "Rust: Runnables"
+            },
+
+            {
+                '<leader>rt',
+                function()
+                    vim.cmd.RustLsp('testables')
+                end,
+                desc = "Rust: Testables"
+            },
+
+            {
+                '<leader>rd',
+                function()
+                    vim.cmd.RustLsp('debuggables')
+                end,
+                desc = "Rust: Debuggables"
+            },
+
+            {
+                '<leader>rD',
+                function()
+                    vim.cmd.RustLsp('debug')
+                end,
+                desc = "Rust: Debug current"
+            },
+
+            {
+                '<leader>re',
+                function()
+                    vim.cmd.RustLsp('expandMacro')
+                end,
+                desc = "Rust: Expand macro"
+            },
+
+            {
+                '<leader>rx',
+                function()
+                    vim.cmd.RustLsp('explainError')
+                end,
+                desc = "Rust: Explain error"
+            },
+
+            {
+                '<leader>ro',
+                function()
+                    vim.cmd.RustLsp('openDocs')
+                end,
+                desc = "Rust: Open docs.rs"
+            },
+
+            {
+                '<leader>rc',
+                function()
+                    vim.cmd.RustLsp('cargo')
+                end,
+                desc = "Rust: Cargo command"
+            },
+        }
     },
     {
         'cordx56/rustowl',

@@ -83,6 +83,45 @@ return {
             --   adapter (default: `R`)
         end,
         keys = {
+            -- ===== Arrow-based Navigation =====
+
+            -- Continue
+            { "<A-Left>",   function() require("dap").continue() end,                                             desc = "DAP Continue" },
+
+            -- Step Over
+            { "<A-Right>",  function() require("dap").step_over() end,                                            desc = "DAP Step Over" },
+
+            -- Step Into
+            { "<A-Down>",   function() require("dap").step_into() end,                                            desc = "DAP Step Into" },
+
+            -- Step Out
+            { "<A-Up>",     function() require("dap").step_out() end,                                             desc = "DAP Step Out" },
+
+            -- Frame navigation (stack up/down)
+            { "<S-A-Up>",   function() require("dap").up() end,                                                   desc = "DAP Frame Up" },
+            { "<S-A-Down>", function() require("dap").down() end,                                                 desc = "DAP Frame Down" },
+
+            -- Toggle Breakpoint
+            { "<A-b>",      function() require("dap").toggle_breakpoint() end,                                    desc = "DAP Toggle Breakpoint" },
+
+            -- Run to Cursor
+            { "<A-r>",      function() require("dap").run_to_cursor() end,                                        desc = "DAP Run to Cursor" },
+
+            -- Pause
+            { "<A-p>",      function() require("dap").pause() end,                                                desc = "DAP Pause" },
+
+            -- Terminate
+            { "<A-t>",      function() require("dap").terminate() end,                                            desc = "DAP Terminate" },
+
+            -- Hover variable under cursor
+            { "<A-h>",      function() require("dap.ui.widgets").hover() end,                                     desc = "DAP Hover" },
+
+            -- Evaluate visually selected expression
+            { "<A-e>",      function() require("dapui").eval() end,                                               mode = { "n", "v" },             desc = "DAP Eval" },
+
+            -- Toggle REPL quickly
+            { "<A-Enter>",  function() require("dap").repl.toggle() end,                                          desc = "DAP REPL" },
+
             { "<leader>da", function() require("dap").continue({ before = get_args }) end,                        desc = "Run with Args" },
             { "<leader>db", function() require("dap").toggle_breakpoint() end,                                    desc = "Toggle Breakpoint" },
             { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
@@ -306,11 +345,11 @@ return {
             require("dap-python").test_runner = "pytest"
         end,
     },
-    {
-        "julianolf/nvim-dap-lldb",
-        dependencies = { "mfussenegger/nvim-dap" },
-        opts = { },
-    }
+    -- {
+    --     "julianolf/nvim-dap-lldb",
+    --     dependencies = { "mfussenegger/nvim-dap" },
+    --     opts = { },
+    -- }
 
 
 }

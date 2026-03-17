@@ -58,7 +58,8 @@ if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
         vim.g.python3_host_prog = "C:/Users/timam/AppData/Local/Programs/Python/Python311/python.exe"
     end
 elseif vim.fn.has("unix") == 1 then
-	vim.opt.shell = "nu"
+	-- vim.opt.shell = "nu"
+    vim.o.shell = "/bin/bash"
 end
 
 

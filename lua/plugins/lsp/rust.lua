@@ -21,6 +21,16 @@ return {
                         ui_select_fallback = true, -- use vim.ui.select for code actions if rust-tools UI is not available
                     },
                 },
+                server = {
+                    default_settings = {
+                        -- rust-analyzer language server configuration
+                        ["rust-analyzer"] = {
+                            diagnostics = {
+                                disabled = { "macro-error" },
+                            },
+                        }
+                    },
+                },
             }
         end,
 
@@ -29,9 +39,13 @@ return {
         -- end,
         keys = {
             -- Rustaceanvim LSP actions (rust-only)
-            { '<leader>ra', function()
-                vim.cmd.RustLsp('codeAction') -- grouped Rust code actions
-            end },
+            {
+                '<leader>ra',
+                function()
+                    vim.cmd.RustLsp('codeAction') -- grouped Rust code actions
+                end,
+                mode = { "n", "v" }
+            },
 
             { '<leader>h', function()
                 vim.cmd.RustLsp({ 'hover', 'actions' })

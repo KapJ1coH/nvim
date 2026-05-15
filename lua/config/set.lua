@@ -13,6 +13,9 @@
 -- end
 
 
+-- Hopefully fixing rust defmt
+-- vim.o.exrc = true
+-- vim.o.secure = true
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true

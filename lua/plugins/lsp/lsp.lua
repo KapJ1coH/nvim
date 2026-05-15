@@ -3,7 +3,7 @@ return {
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { "lua_ls", "pyright", "clangd", "taplo" },
+            ensure_installed = { "lua_ls", "clangd", "taplo" },
             -- ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "clangd", "taplo" },
             handlers = {
                 function(server_name) -- default handler (optional)

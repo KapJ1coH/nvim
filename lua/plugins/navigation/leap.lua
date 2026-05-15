@@ -7,12 +7,12 @@ local opts_leap = {
     substitute_chars = {},
     safe_labels = "sfnut/SFNLHMUGTZ?",
     labels = "sfnjklhodweimbuyvrgtaqpcxz/SFNJKLHODWEIMBUYVRGTAQPCXZ?",
-    special_keys = {
-        next_target = "<enter>",
-        prev_target = "<tab>",
-        next_group = "<space>",
-        prev_group = "<sab>",
-    },
+    -- special_keys = {
+    --     next_target = "<enter>",
+    --     prev_target = "<tab>",
+    --     next_group = "<space>",
+    --     prev_group = "<sab>",
+    -- },
 }
 
 local opts_flit = {
@@ -56,7 +56,7 @@ return {
             add_default_mappings(true)
             -- Use the traversal keys to repeat the previous motion without explicitly
             -- invoking Leap.
-            require("leap.user").set_repeat_keys("<enter>", "<backspace>")
+            -- require("leap.user").set_repeat_keys("<enter>", "<backspace>")
         end,
 
         keys = {

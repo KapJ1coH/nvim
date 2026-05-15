@@ -1,11 +1,22 @@
+local username = vim.fn.expand('$USER')
+if username == '$USER' then
+    username = vim.fn.expand('$USERNAME')
+end
+
+local disable = false
+if username == 'ty096829' then
+    disable = true
+end
+
 return {
     {
         "zbirenbaum/copilot.lua",
+        disabled = disable,
         cmd = "Copilot",
         event = "InsertEnter",
         keys = {
             { "<leader>cc", "<cmd>Copilot toggle<cr>", desc = "Toggle Copilot" },
-            { "<leader>cp", "<cmd>Copilot panel<cr>", desc = "Show Copilot Panel" },
+            { "<leader>cp", "<cmd>Copilot panel<cr>",  desc = "Show Copilot Panel" },
         },
         opts = {
             suggestion = { enabled = false },

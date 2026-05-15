@@ -53,7 +53,7 @@ if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
 	vim.opt.shellquote = ""
 	vim.opt.shellxquote = ""
     if username == 'ty096829' then
-        vim.g.python3_host_prog = "C:/Users/ty096829/AppData/Local/Programs/Python/Python311/python.exe"
+        vim.g.python3_host_prog = "C:/Python314/python.exe"
     else
         vim.g.python3_host_prog = "C:/Users/timam/AppData/Local/Programs/Python/Python311/python.exe"
     end

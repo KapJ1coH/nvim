@@ -25,7 +25,7 @@ return {
             },
         },
         dependencies = {
-            { "mason-org/mason.nvim", version = "^1.0.0", opts = {} },
+            { "mason-org/mason.nvim", opts = {} },
             "neovim/nvim-lspconfig",
         },
     },
@@ -37,7 +37,7 @@ return {
         dependencies = {
             -- { "hrsh7th/cmp-nvim-lsp" },
             {
-                { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+                { "mason-org/mason-lspconfig.nvim" },
                 { "j-hui/fidget.nvim" },
                 -- 'nvim-java/nvim-java',
             },
@@ -128,12 +128,14 @@ return {
             vim.lsp.enable({
                 "ruff",
                 "jdtls",
-                "pyright",
+                -- "pyright",
+                "pyrefly",
                 "rust-analyzer",
                 "clangd",
                 "rustowl",
                 "lua_ls",
                 "taplo",
+                -- "ty",
 
             })
             -- lspcfg.ruff.setup({

@@ -184,9 +184,9 @@ return {
                 vim.lsp.buf.code_action()
             end, { desc = "Code Action", remap = false })
 
-            vim.keymap.set({"n", "v"}, "<leader><leader>", function()
-                vim.lsp.buf.code_action()
-            end, { desc = "Code Action", remap = false })
+            -- vim.keymap.set({"n", "v"}, "<leader><leader>", function()
+            --     vim.lsp.buf.code_action()
+            -- end, { desc = "Code Action", remap = false })
 
             vim.keymap.set("n", "<leader>lrr", function()
                 vim.lsp.buf.references()

@@ -1,6 +1,6 @@
 local username = vim.fn.expand("$USER")
 if username == "$USER" then
-	username = vim.fn.expand("$USERNAME")
+    username = vim.fn.expand("$USERNAME")
 end
 
 vim.g.mapleader = " "
@@ -9,16 +9,25 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- window/buffer navigation
 -- window (split) navigation using Shift + Arrows
-vim.keymap.set("n", "<S-Up>",    "<C-w>k", { desc = "Go to above split" })
-vim.keymap.set("n", "<S-Down>",  "<C-w>j", { desc = "Go to below split" })
-vim.keymap.set("n", "<S-Left>",  "<C-w>h", { desc = "Go to left split"  })
+vim.keymap.set("n", "<S-Up>", "<C-w>k", { desc = "Go to above split" })
+vim.keymap.set("n", "<S-Down>", "<C-w>j", { desc = "Go to below split" })
+vim.keymap.set("n", "<S-Left>", "<C-w>h", { desc = "Go to left split" })
 vim.keymap.set("n", "<S-Right>", "<C-w>l", { desc = "Go to right split" })
 
 
 -- window/buffer navigation
 
 
-
+-- copy diagnostic message
+vim.keymap.set("n", "<leader>dc", function()
+    local diags = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+    if #diags == 0 then
+        vim.notify("No diagnostics on this line", vim.log.levels.INFO)
+        return
+    end
+    vim.fn.setreg("+", diags[1].message)
+    vim.notify("Diagnostic copied!", vim.log.levels.INFO)
+end, { desc = "Copy diagnostic message" })
 
 -- vim.keymap.set("v", "T", ":m '>+1<CR>gv=gv")
 -- vim.keymap.set("v", "D", ":m '<-2<CR>gv=gv")
@@ -49,18 +58,18 @@ vim.keymap.set("n", "<leader>vr", "<cmd>e $LOCALAPPDATA/nvim/lua/config/remap.lu
 vim.keymap.set("n", "<leader>vn", "<cmd>e ~/Documents/notes<CR>")
 
 if username == "timam" then
-	vim.keymap.set("n", "<leader>vph", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/remap.lua<CR>")
-	-- vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
-	vim.keymap.set("n", "<leader>vn", "<cmd>e ~/Documents/Notes<CR>")
+    vim.keymap.set("n", "<leader>vph", "<cmd>e $LOCALAPPDATA/nvim/lua/kap/remap.lua<CR>")
+    -- vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
+    vim.keymap.set("n", "<leader>vn", "<cmd>e ~/Documents/Notes<CR>")
 elseif username == "ty096829" then
-	vim.keymap.set("n", "<leader>vph", "<cmd>e C:/sarnext/mmu/project_help.py<CR>")
-	vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
-	vim.keymap.set("n", "<leader>vn", "<cmd>e C:/Users/ty096829/Documents/Notes/notes.md<CR>")
-	vim.keymap.set(
-		"n",
-		"<leader>rg",
-		[[:!python mmu_test_sw_lib\mmu_test_sw_lib\Utilities\reg_lookup\reg_lookup.py <C-r><C-w><cr>]]
-	)
+    vim.keymap.set("n", "<leader>vph", "<cmd>e C:/sarnext/mmu/project_help.py<CR>")
+    vim.keymap.set("n", "<leader>vmmu", "<cmd>e C:/sarnext/mmu<CR>")
+    vim.keymap.set("n", "<leader>vn", "<cmd>e C:/Users/ty096829/Documents/Notes/notes.md<CR>")
+    vim.keymap.set(
+        "n",
+        "<leader>rg",
+        [[:!python mmu_test_sw_lib\mmu_test_sw_lib\Utilities\reg_lookup\reg_lookup.py <C-r><C-w><cr>]]
+    )
 end
 
 -- will be code actions now

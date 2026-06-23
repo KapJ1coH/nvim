@@ -27,7 +27,7 @@ local M = {
             "rust",
             "nu",
         },
-        sync_install = false,
+        sync_install = true,
         highlight = {
             enable = true,
             disable = { "latex" },

@@ -1,10 +1,11 @@
-local username = vim.fn.expand('$USER')
-if username == '$USER' then
-    username = vim.fn.expand('$USERNAME')
-end
+
+local sysname = vim.uv.os_uname().sysname
+local is_mac = sysname == "Darwin"
+local is_linux = sysname == "Linux"
+
 
 local disable = false
-if username == 'ty096829' then
+if is_mac then
     disable = true
 end
 

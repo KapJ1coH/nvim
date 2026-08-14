@@ -77,49 +77,39 @@ return {
                 }
             })
 
-            -- lspcfg.jdtls.setup({
+            -- vim.lsp.config('gopls', {
             --     settings = {
-            --         java = {
-            --             configuration = {
-            --                 runtimes = {
-            --                     {
-            --                         name = "corretto-21",
-            --                         path = "C:\\Users\\timam\\scoop\\apps\\corretto21-jdk\\current\\bin\\java.exe",
-            --                         default = true,
-            --                     }
-            --                 }
-            --             }
-            --         }
-            --     }
-            -- })
-
-            -- vim.lsp.config('pyright', {
-            --     pyright = {
-            --         settings = {
-            --             pyright = {
-            --                 disableOrganizeImports = true, -- Using Ruff
+            --         gopls = {
+            --             gofumpt = true,
+            --             staticcheck = true,
+            --             semanticTokens = true,
+            --             usePlaceholders = true,
+            --             completeUnimported = true,
+            --             directoryFilters = { "-.git", "-node_modules", "-vendor" },
+            --             analyses = {
+            --                 unusedparams   = true,
+            --                 unusedwrite    = true,
+            --                 nilness        = true,
+            --                 useany         = true,
+            --                 unusedvariable = true,
+            --                 ST1000         = false,
+            --                 ST1020         = false,
             --             },
-            --             python = {
-            --                 analysis = {
-            --                     ignore = { '*' }, -- Using Ruff
-            --                     -- typeCheckingMode = 'off', -- Using mypy
-            --                 },
+            --             codelenses = {
+            --                 generate = true,
+            --                 test = true,
+            --                 tidy = true,
+            --                 upgrade_dependency = true,
+            --                 run_govulncheck = true,
             --             },
-            --         },
-            --     }
-            -- })
-
-            -- lspcfg.pyright.setup({
-            --     pyright = {
-            --         settings = {
-            --             pyright = {
-            --                 disableOrganizeImports = true, -- Using Ruff
-            --             },
-            --             python = {
-            --                 analysis = {
-            --                     ignore = { '*' }, -- Using Ruff
-            --                     -- typeCheckingMode = 'off', -- Using mypy
-            --                 },
+            --             hints = {
+            --                 parameterNames         = true,
+            --                 assignVariableTypes    = true,
+            --                 constantValues         = true,
+            --                 compositeLiteralFields = true,
+            --                 compositeLiteralTypes  = true,
+            --                 functionTypeParameters = true,
+            --                 rangeVariableTypes     = true,
             --             },
             --         },
             --     }
@@ -135,6 +125,7 @@ return {
                 "rustowl",
                 "lua_ls",
                 "taplo",
+                "gopls",
                 -- "ty",
 
             })

@@ -12,7 +12,7 @@ end
 return {
     {
         "zbirenbaum/copilot.lua",
-        disabled = disable,
+        enabled = false,
         cmd = "Copilot",
         event = "InsertEnter",
         keys = {

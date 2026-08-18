@@ -132,3 +132,18 @@ vim.keymap.set("n", "<leader>i", vim.diagnostic.open_float)
 vim.keymap.set("n", "<C-v>", '"+p')
 vim.keymap.set("i", "<C-v>", '"+p')
 vim.keymap.set("v", "<C-v>", '"+p')
+
+
+-- Activate the treesitter on every file
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = '*',
+  callback = function(args)
+    local ft = vim.bo[args.buf].filetype
+    local lang = vim.treesitter.language.get_lang(ft) or ft
+
+    -- only start if a parser is actually available for this language
+    if vim.treesitter.language.add(lang) then
+      vim.treesitter.start(args.buf, lang)
+    end
+  end,
+})

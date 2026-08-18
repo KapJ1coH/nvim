@@ -2,6 +2,7 @@ vim.opt.conceallevel = 1
 
 return {
     "obsidian-nvim/obsidian.nvim",
+    enabled = false,
     version = "*",
     ft = "markdown",
 

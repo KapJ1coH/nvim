@@ -7,7 +7,7 @@
 
 return {
   "esmuellert/codediff.nvim",
-  cmd = "CodeDiff",
+  cmd = {"CodeDiff", "Diff", "GitDiff"},
   opts = {
     -- Highlight configuration
     highlights = {

@@ -13,15 +13,6 @@ return {
                     -- require("lspconfig")[server_name].setup {} -- deprecated
                     vim.lsp.config(server_name, {})
                 end,
-                --     jdtls = function()
-                --         require('java').setup {
-                --             -- Your custom jdtls settings goes here
-                --         }
-
-                --         require('lspconfig').jdtls.setup {
-                --             -- Your custom nvim-java configuration goes here
-                --         }
-                --     end,
             },
         },
         dependencies = {
@@ -77,44 +68,6 @@ return {
                 }
             })
 
-            -- vim.lsp.config('gopls', {
-            --     settings = {
-            --         gopls = {
-            --             gofumpt = true,
-            --             staticcheck = true,
-            --             semanticTokens = true,
-            --             usePlaceholders = true,
-            --             completeUnimported = true,
-            --             directoryFilters = { "-.git", "-node_modules", "-vendor" },
-            --             analyses = {
-            --                 unusedparams   = true,
-            --                 unusedwrite    = true,
-            --                 nilness        = true,
-            --                 useany         = true,
-            --                 unusedvariable = true,
-            --                 ST1000         = false,
-            --                 ST1020         = false,
-            --             },
-            --             codelenses = {
-            --                 generate = true,
-            --                 test = true,
-            --                 tidy = true,
-            --                 upgrade_dependency = true,
-            --                 run_govulncheck = true,
-            --             },
-            --             hints = {
-            --                 parameterNames         = true,
-            --                 assignVariableTypes    = true,
-            --                 constantValues         = true,
-            --                 compositeLiteralFields = true,
-            --                 compositeLiteralTypes  = true,
-            --                 functionTypeParameters = true,
-            --                 rangeVariableTypes     = true,
-            --             },
-            --         },
-            --     }
-            -- })
-
             vim.lsp.enable({
                 "ruff",
                 "jdtls",
@@ -129,13 +82,16 @@ return {
                 -- "ty",
 
             })
-            -- lspcfg.ruff.setup({
-            --     init_options = {
-            --         settings = {
-            --             -- Ruff language server settings go here
-            --         }
-            --     }
-            -- })
+
+            vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+                group = vim.api.nvim_create_augroup("no_lsp_virtual_buffers", { clear = true }),
+                callback = function(args)
+                    local bufname = vim.api.nvim_buf_get_name(args.buf)
+                    if bufname:find("://", 1, true) then
+                        vim.b[args.buf].snacks_words = false
+                    end
+                end,
+            })
 
             vim.keymap.set(
                 "n",

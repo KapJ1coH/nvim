@@ -75,30 +75,29 @@ return {
             -- misc
             { "<leader>Gc",  "<cmd>GoCodeLenAct<cr>",     ft = "go",              desc = "Run codelens action" },
             { "<leader>Gh",  "<cmd>GoCheat<cr>",          ft = "go",              desc = "Go cheatsheet" },
+            { "<leader>Gsq", function () require('otter').activate({ 'sql' }, true, true) end, desc = "go activate sql" },
         },
 
     },
 
     {
         "nvim-neotest/neotest",
-        optional = true,
+        -- optional = true,
         dependencies = {
             {
                 "fredrikaverpil/neotest-golang",
                 version = "*",
                 dependencies = { { "leoluz/nvim-dap-go", opts = {} } },
-                build = function()
-                    vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait()
-                end,
             },
         },
         opts = function(_, opts)
             opts.adapters = opts.adapters or {}
-            opts.adapters["neotest-golang"] = {
-                runner = "gotestsum",
+            table.insert(opts.adapters, require("neotest-golang")({
+                runner = "go",
                 go_test_args = { "-v", "-race", "-count=1", "-timeout=60s" },
                 dap_go_enabled = true,
-            }
+                warn_test_name_dupes = false,
+            }))
             return opts
         end,
     }

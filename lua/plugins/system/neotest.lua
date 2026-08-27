@@ -49,8 +49,8 @@ return {
         },
     },
 
-    config = function()
-        require("neotest").setup({
+    opts = function()
+        return {
             adapters = {
                 require("neotest-python")({
                     -- Extra arguments for nvim-dap configuration
@@ -83,6 +83,9 @@ return {
                 -- 	ignore_file_types = { "python", "vim", "lua" },
                 -- }),
             },
-        })
+        }
+    end,
+    config = function(_, opts)
+        require("neotest").setup(opts)
     end,
 }

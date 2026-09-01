@@ -5,10 +5,19 @@ return {
         require("conform").setup({
             formatters_by_ft = {
                 lua = { "stylua" },
-                go = { "goimports", "gofumpt" },
+                go = { "goimports", "gofumpt", "golines" },
                 python = { "isort", "ruff_fix", "black" },
-            }
+            },
+            formatters = {
+                golines = {
+                    prepend_args = { "-m", "100" },
+                },
+            },
         })
+
+        vim.keymap.set({ "n", "v" }, "<leader>F", function()
+            require("conform").format({ async = false, lsp_format = "never" })
+        end, { desc = "Format buffer or selection" })
     end
 }
 

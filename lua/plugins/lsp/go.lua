@@ -1,3 +1,30 @@
+-- B5 specific commands
+local function shell_quote(value)
+    return "'" .. tostring(value):gsub("'", "'\\''") .. "'"
+end
+
+local function b5_strategy(spec, context)
+    if context.adapter.name == "neotest-golang" then
+        spec = vim.deepcopy(spec)
+
+        local command = vim.iter(spec.command)
+            :map(shell_quote)
+            :join(" ")
+
+        spec.command = {
+            vim.fn.expand("~/go/bin/b5env"),
+            "-c",
+            command,
+        }
+    end
+
+    return require("neotest.client.strategies.integrated")(spec)
+end
+
+
+
+
+
 return {
     {
         "ray-x/go.nvim",
@@ -36,46 +63,45 @@ return {
         config = function(_, opts)
             require("go").setup(opts)
             -- keymaps: same FileType autocmd block from before
-
         end,
         keys = {
             -- navigation
-            { "<leader>Ga",  "<cmd>GoAlt<cr>",            ft = "go",              desc = "Alt file (src <-> test)" },
-            { "<leader>GA",  "<cmd>GoAltV<cr>",           ft = "go",              desc = "Alt file (vsplit)" },
+            { "<leader>Ga",  "<cmd>GoAlt<cr>",                                                ft = "go",               desc = "Alt file (src <-> test)" },
+            { "<leader>GA",  "<cmd>GoAltV<cr>",                                               ft = "go",               desc = "Alt file (vsplit)" },
             -- codegen / refactor
-            { "<leader>Ge",  "<cmd>GoIfErr<cr>",          ft = "go",              desc = "Generate if err" },
-            { "<leader>Gi",  "<cmd>GoImpl<cr>",           ft = "go",              desc = "Implement interface" },
-            { "<leader>Gf",  "<cmd>GoFillStruct<cr>",     ft = "go",              desc = "Fill struct" },
-            { "<leader>GF",  "<cmd>GoFillSwitch<cr>",     ft = "go",              desc = "Fill switch" },
-            { "<leader>Gp",  "<cmd>GoFixPlurals<cr>",     ft = "go",              desc = "Fix plural params" },
-            { "<leader>Gd",  "<cmd>GoCmt<cr>",            ft = "go",              desc = "Add doc comment" },
+            { "<leader>Ge",  "<cmd>GoIfErr<cr>",                                              ft = "go",               desc = "Generate if err" },
+            { "<leader>Gi",  "<cmd>GoImpl<cr>",                                               ft = "go",               desc = "Implement interface" },
+            { "<leader>Gf",  "<cmd>GoFillStruct<cr>",                                         ft = "go",               desc = "Fill struct" },
+            { "<leader>GF",  "<cmd>GoFillSwitch<cr>",                                         ft = "go",               desc = "Fill switch" },
+            { "<leader>Gp",  "<cmd>GoFixPlurals<cr>",                                         ft = "go",               desc = "Fix plural params" },
+            { "<leader>Gd",  "<cmd>GoCmt<cr>",                                                ft = "go",               desc = "Add doc comment" },
             -- struct tags
-            { "<leader>Gst", "<cmd>GoAddTag<cr>",         ft = "go",              desc = "Add tag" },
-            { "<leader>GsT", "<cmd>GoRmTag<cr>",          ft = "go",              desc = "Remove tag" },
-            { "<leader>Gj",  "<cmd>GoAddTag json<cr>",    ft = "go",              desc = "Add json tag" },
-            { "<leader>Gy",  "<cmd>GoAddTag yaml<cr>",    ft = "go",              desc = "Add yaml tag" },
+            { "<leader>Gst", "<cmd>GoAddTag<cr>",                                             ft = "go",               desc = "Add tag" },
+            { "<leader>GsT", "<cmd>GoRmTag<cr>",                                              ft = "go",               desc = "Remove tag" },
+            { "<leader>Gj",  "<cmd>GoAddTag json<cr>",                                        ft = "go",               desc = "Add json tag" },
+            { "<leader>Gy",  "<cmd>GoAddTag yaml<cr>",                                        ft = "go",               desc = "Add yaml tag" },
             -- test scaffolding (gotests)
-            { "<leader>Gta", "<cmd>GoAddTest<cr>",        ft = "go",              desc = "Generate test for func" },
-            { "<leader>GtA", "<cmd>GoAddAllTest<cr>",     ft = "go",              desc = "Generate tests for all funcs" },
-            { "<leader>Gtx", "<cmd>GoAddExpTest<cr>",     ft = "go",              desc = "Generate tests (exported)" },
-            { "<leader>Gts", "<cmd>GoTestSum -w<cr>",     ft = "go",              desc = "gotestsum watch mode" },
-            { "<leader>Gt",  "<cmd>GoTest -w<cr>",        ft = "go",              desc = "go test" },
-            { "<leader>Gtf", "<cmd>GoTestFile -w<cr>",    ft = "go",              desc = "go test file" },
-            { "<leader>Gtp", "<cmd>GoTestPackage -w<cr>", ft = "go",              desc = "go test package" },
+            { "<leader>Gta", "<cmd>GoAddTest<cr>",                                            ft = "go",               desc = "Generate test for func" },
+            { "<leader>GtA", "<cmd>GoAddAllTest<cr>",                                         ft = "go",               desc = "Generate tests for all funcs" },
+            { "<leader>Gtx", "<cmd>GoAddExpTest<cr>",                                         ft = "go",               desc = "Generate tests (exported)" },
+            { "<leader>Gts", "<cmd>GoTestSum -w<cr>",                                         ft = "go",               desc = "gotestsum watch mode" },
+            { "<leader>Gt",  "<cmd>GoTest -w<cr>",                                            ft = "go",               desc = "go test" },
+            { "<leader>Gtf", "<cmd>GoTestFile -w<cr>",                                        ft = "go",               desc = "go test file" },
+            { "<leader>Gtp", "<cmd>GoTestPackage -w<cr>",                                     ft = "go",               desc = "go test package" },
             -- module / deps
-            { "<leader>Gm",  "<cmd>GoModTidy<cr>",        ft = { "go", "gomod" }, desc = "go mod tidy" },
-            { "<leader>GM",  "<cmd>GoModVendor<cr>",      ft = { "go", "gomod" }, desc = "go mod vendor" },
-            { "<leader>Gg",  "<cmd>GoGet<cr>",            ft = { "go", "gomod" }, desc = "go get" },
+            { "<leader>Gm",  "<cmd>GoModTidy<cr>",                                            ft = { "go", "gomod" },  desc = "go mod tidy" },
+            { "<leader>GM",  "<cmd>GoModVendor<cr>",                                          ft = { "go", "gomod" },  desc = "go mod vendor" },
+            { "<leader>Gg",  "<cmd>GoGet<cr>",                                                ft = { "go", "gomod" },  desc = "go get" },
             -- build / check
-            { "<leader>Gb",  "<cmd>GoBuild<cr>",          ft = "go",              desc = "go build" },
-            { "<leader>Gr",  "<cmd>GoRun<cr>",            ft = "go",              desc = "go run" },
-            { "<leader>Gv",  "<cmd>GoVet<cr>",            ft = "go",              desc = "go vet" },
-            { "<leader>Gl",  "<cmd>GoLint<cr>",           ft = "go",              desc = "golangci-lint" },
-            { "<leader>Gz",  "<cmd>GoGenerate<cr>",       ft = "go",              desc = "go generate" },
+            { "<leader>Gb",  "<cmd>GoBuild<cr>",                                              ft = "go",               desc = "go build" },
+            { "<leader>Gr",  "<cmd>GoRun<cr>",                                                ft = "go",               desc = "go run" },
+            { "<leader>Gv",  "<cmd>GoVet<cr>",                                                ft = "go",               desc = "go vet" },
+            { "<leader>Gl",  "<cmd>GoLint<cr>",                                               ft = "go",               desc = "golangci-lint" },
+            { "<leader>Gz",  "<cmd>GoGenerate<cr>",                                           ft = "go",               desc = "go generate" },
             -- misc
-            { "<leader>Gc",  "<cmd>GoCodeLenAct<cr>",     ft = "go",              desc = "Run codelens action" },
-            { "<leader>Gh",  "<cmd>GoCheat<cr>",          ft = "go",              desc = "Go cheatsheet" },
-            { "<leader>Gsq", function () require('otter').activate({ 'sql' }, true, true) end, desc = "go activate sql" },
+            { "<leader>Gc",  "<cmd>GoCodeLenAct<cr>",                                         ft = "go",               desc = "Run codelens action" },
+            { "<leader>Gh",  "<cmd>GoCheat<cr>",                                              ft = "go",               desc = "Go cheatsheet" },
+            { "<leader>Gsq", function() require('otter').activate({ 'sql' }, true, true) end, desc = "go activate sql" },
         },
 
     },
@@ -98,6 +124,13 @@ return {
                 dap_go_enabled = true,
                 warn_test_name_dupes = false,
             }))
+
+            opts.projects = opts.projects or {}
+            opts.projects[vim.fn.expand("~/go/src/go.1password.io/b5")] = {
+                default_strategy = b5_strategy,
+            }
+
+
             return opts
         end,
     }

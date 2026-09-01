@@ -79,6 +79,7 @@ return {
                 "lua_ls",
                 "taplo",
                 "gopls",
+                "golines",
                 -- "ty",
 
             })

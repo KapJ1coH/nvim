@@ -1,29 +1,48 @@
--- B5 specific commands
-local function shell_quote(value)
-    return "'" .. tostring(value):gsub("'", "'\\''") .. "'"
-end
+local b5_root = vim.fs.normalize(vim.fn.expand("~/go/src/go.1password.io/b5"))
+local b5env = vim.fn.expand("~/go/bin/b5env")
 
-local function b5_strategy(spec, context)
-    if context.adapter.name == "neotest-golang" then
-        spec = vim.deepcopy(spec)
-
-        local command = vim.iter(spec.command)
-            :map(shell_quote)
-            :join(" ")
-
-        spec.command = {
-            vim.fn.expand("~/go/bin/b5env"),
-            "-c",
-            command,
-        }
+local function is_b5_path(path)
+    if not path then
+        return false
     end
 
-    return require("neotest.client.strategies.integrated")(spec)
+    path = vim.fs.normalize(path)
+    return path == b5_root or vim.startswith(path, b5_root .. "/")
 end
 
+local function wrap_b5_test_spec(spec)
+    if not spec
+        or not is_b5_path(spec.cwd)
+        or not spec.command
+        or spec.command[1] ~= "go"
+        or spec.command[2] ~= "test"
+    then
+        return spec
+    end
 
+    spec = vim.deepcopy(spec)
+    spec.command = vim.list_extend({ b5env, "-c", "go" }, vim.list_slice(spec.command, 2))
+    return spec
+end
 
+local function wrap_b5_test_commands(adapter)
+    local wrapped = vim.tbl_extend("force", {}, adapter)
 
+    wrapped.build_spec = function(args)
+        local specs = adapter.build_spec(args)
+        if not specs then
+            return nil
+        end
+
+        if vim.islist(specs) then
+            return vim.tbl_map(wrap_b5_test_spec, specs)
+        end
+
+        return wrap_b5_test_spec(specs)
+    end
+
+    return wrapped
+end
 
 return {
     {
@@ -118,18 +137,13 @@ return {
         },
         opts = function(_, opts)
             opts.adapters = opts.adapters or {}
-            table.insert(opts.adapters, require("neotest-golang")({
+            local go_adapter = require("neotest-golang")({
                 runner = "go",
-                go_test_args = { "-v", "-race", "-count=1", "-timeout=60s" },
+                go_test_args = { "-v", "-p", "2", "-count=1" },
                 dap_go_enabled = true,
                 warn_test_name_dupes = false,
-            }))
-
-            opts.projects = opts.projects or {}
-            opts.projects[vim.fn.expand("~/go/src/go.1password.io/b5")] = {
-                default_strategy = b5_strategy,
-            }
-
+            })
+            table.insert(opts.adapters, wrap_b5_test_commands(go_adapter))
 
             return opts
         end,
